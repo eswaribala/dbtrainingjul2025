@@ -26,4 +26,8 @@ git version
 #to create database 
 create database bankdb;
 
+#to clone the repository
+# go to documents/labs/lab01
+# open the terminal
+git clone https://github.com/eswaribala/dbtrainingjul2025
 
