@@ -8,4 +8,7 @@ psql
 #to install git
 sudo apt update
 sudo apt install git
+#to check git installtion, type
+git version
+
 
