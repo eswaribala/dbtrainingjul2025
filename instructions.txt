@@ -1,0 +1,4 @@
+#during training session, to practice all the commands given by trainer use
+full stack developer lab (sandbox vm)
+#To practice exrcises given by skill soft or deutsche bank use
+Home->Instructor led trainig-> learn more --> respective practice lab
