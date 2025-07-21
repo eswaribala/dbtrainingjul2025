@@ -5,5 +5,7 @@ sudo systemctl status postgresql
 sudo -i -u postgres
 #to write query,type
 psql
-
+#to install git
+sudo apt update
+sudo apt install git
 
