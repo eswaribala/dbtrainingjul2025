@@ -31,7 +31,7 @@ create database bankdb;
 # open the terminal
 git clone https://github.com/eswaribala/dbtrainingjul2025
 #to run .sql file
-\i /home/ubuntu-user/Documents/Labs/Lab01/bank.sql
+\i /home/ubuntu-user/Documents/Labs/Lab01/dbtrainingjul2025/bank.sql
 
 
 
