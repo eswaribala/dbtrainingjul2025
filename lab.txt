@@ -36,5 +36,8 @@ git clone https://github.com/eswaribala/dbtrainingjul2025
 \dt
 #to list all colums in table
 \d customer
-
+#to see custom type created
+\dT+
+or
+\dT+ gendertype
 
