@@ -1,0 +1,346 @@
+psql -h localhost -d postgres -U postgres -p 5432 -W
+select datname,oid from pg_database where datname='postgres';
+.\initdb.exe -D c:/democluster/postgresql/14/data
+
+Change the server port in data folder config file
+.\pg_ctl.exe start -D e:\PostgreSQL\14\data
+Server started
+psql -h localhost -d postgres  -p 5436 -W
+
+\l list the databases
+\c change the database
+\dt list the tables
+select version();
+select current_date;
+select 56+77;
+\q quit the data cluster
+
+Create table cwd_directory(id numeric(18,0) Primary Key, directory_name varchar(255), lower_directory_name varchar(255), created_date timestamptz,
+updated_date timestamptz, active numeric(9,0));
+
+\d cwd_directory -- describe the table
+
+show timezone;
+set timezone = 'America/Los_Angeles';
+
+insert into cwd_directory (id,directory_name,lower_directory_name,created_date,updated_date,active) values(1,'LDAP', 'ldap', '2022-04-05 20:20:25-07', '2022-09-19 01:02:25-07',
+2);
+select current_timestamp;
+update cwd_directory set created_date='2022-04-05 12:40:47.910466+05:30' where id=1;
+
+#foreign key
+create table cwd_synchronization_token(directory_id numeric(18,0) references cwd_directory(id), synch_status_token text);
+
+insert into cwd_synchronization_token(directory_id,synch_status_token)values(1,'available');
+
+create table cwd_user(id numeric(18,0) primary key, directory_id numeric(18,0) references cwd_directory(id), user_name varchar(255),
+lower_user_name varchar(255));
+
+alter table cwd_user add constraint unique_key unique(lower_user_name); 
+
+create table app_user(id numeric(18,0) primary key, user_key varchar(255),
+lower_user_name varchar(255) references cwd_user(lower_user_name));
+
+
+alter table app_user add constraint unique_key_app_user unique(user_key); 
+
+create type featuretype as Enum('ACTIVE','INACTIVE');
+
+create table feature(id numeric(18,0) primary key, feature_name varchar(255), feature_type featuretype, user_key varchar(255)
+references app_user(user_key));
+
+
+#geometry type
+CREATE EXTENSION postgis;
+
+CREATE TABLE geometries (name varchar, geom geometry);
+
+INSERT INTO geometries VALUES
+  ('Point', 'POINT(0 0)'),
+  ('Linestring', 'LINESTRING(0 0, 1 1, 2 1, 2 2)'),
+  ('Polygon', 'POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))'),
+  ('PolygonWithHole', 'POLYGON((0 0, 10 0, 10 10, 0 10, 0 0),(1 1, 1 2, 2 2, 2 1, 1 1))'),
+  ('Collection', 'GEOMETRYCOLLECTION(POINT(2 0),POLYGON((0 0, 1 0, 1 1, 0 1, 0 0)))');
+
+SELECT name, ST_AsText(geom) FROM geometries;
+
+create Type FullName as (FirstName varchar(100),LastName varchar(100),
+MiddleName varchar(100));
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+create table member(id uuid DEFAULT uuid_generate_v4(),
+name FullName);
+
+insert into member (name) values(('Parameswari','bala',''));
+
+
+#ts vector and ts query
+CREATE TABLE courses
+(id SERIAL PRIMARY KEY, 
+title VARCHAR(80) NOT NULL, 
+description VARCHAR(200) NOT NULL);
+INSERT INTO courses (title, description) VALUES
+  ('Improve your sales skills', 'A complete course that will help you to improve your sales skills'),
+  ('Intro to Computer Science', 'Understand how computers work'),
+  ('Law 101', 'Have you ever wondered doing some Law?'),
+  ('Natural Sciences the easy way', 'Your guide to understand the world'),
+  ('Mathematics: a gentle introduction', 'Numbers are easy'),
+  ('The crash course of Data Science', 'Be a data scientist in 5 weeks'),
+  ('Sales crash course', 'Yet another course on Sales'),
+  ('Java in a nutshell', 'Learn Java in 21 days'),
+  ('Ruby programming language', 'DDH sales Ruby, but could you buy it?'),
+  ('Sales matter', 'Really?'),
+  ('History in 3 pages', 'Can you learn history in 3 pages?'),
+  ('Mastering Git', 'Git history will no longer bother you'),
+  ('Cooking like a boss', 'Be the next master chef'),
+  ('Master Chef 3.0', 'Cooking revisited'),
+  ('Functional Programming in a nutshell', 'Learn FP in 4 days');
+
+SELECT * FROM courses;
+
+SELECT 
+    courses.id,
+    courses.title,
+    courses.description
+FROM 
+    courses
+WHERE  
+    courses.title LIKE '%java%' OR courses.description LIKE '%java%'
+
+SELECT to_tsvector('Java in a nutshell')
+
+SELECT to_tsquery('java & in & a & nutshell');
+
+/* true */
+SELECT to_tsquery('java & in & a & nutshell') @@ to_tsvector('Java in a nutshell'); 
+
+/* true */
+SELECT to_tsquery('java') @@ to_tsvector('Java in a nutshell'); 
+
+/* true */
+SELECT to_tsquery('nutshell') @@ to_tsvector('Java in a nutshell'); 
+
+/* false */
+SELECT to_tsquery('batatas') @@ to_tsvector('Java in a nutshell');
+
+SELECT * 
+FROM courses
+WHERE to_tsquery('java') @@ to_tsvector(courses.title)
+
+SELECT
+    ts_rank(
+        to_tsvector('Java in a nutshell'),
+        to_tsquery('java')
+    )
+
+/* 0.06079271 */
+SELECT ts_rank(to_tsvector('Java in a nutshell'), to_tsquery('nutshell')) 
+
+/* 0 */
+SELECT ts_rank(to_tsvector('Java in a nutshell'), to_tsquery('batatas'))
+
+SELECT
+    ts_rank(
+        to_tsvector('Java in a nutshell'),
+        to_tsquery('java')
+    ) AS rank_title,
+    ts_rank(
+        to_tsvector('Learn in 21 days'),
+        to_tsquery('java')
+    ) AS rank_description
+
+SELECT 
+    courses.id,
+    courses.title,
+    courses.description,
+    ts_rank(to_tsvector(courses.title), query) as rank_title,
+    ts_rank(to_tsvector(courses.description), query) as rank_description
+FROM 
+    courses, 
+    to_tsvector(courses.title || courses.description) document,
+    to_tsquery('sales') query
+WHERE query @@ document
+ORDER BY rank_description, rank_title DESC
+
+CREATE EXTENSION pg_trgm
+
+SELECT 
+    to_tsquery('jova') @@ to_tsvector('Java in a nutshell') AS search,
+    SIMILARITY('jova', 'Java in a nutshell') as similarity
+
+SELECT 
+    courses.id,
+    courses.title,
+    courses.description,
+    rank_title,
+    rank_description,
+    similarity
+FROM 
+    courses, 
+    to_tsvector(courses.title || courses.description) document,
+    to_tsquery('curse') query,
+    NULLIF(ts_rank(to_tsvector(courses.title), query), 0) rank_title,
+    NULLIF(ts_rank(to_tsvector(courses.description), query), 0) rank_description,
+    SIMILARITY('curse', courses.title || courses.description) similarity
+WHERE query @@ document OR similarity > 0
+ORDER BY rank_title, rank_description, similarity DESC NULLS LAST
+
+CREATE EXTENSION pg_trgm
+
+SELECT 
+    
+    courses.title,
+    courses.description,
+    similarity
+FROM 
+    courses, 
+    to_tsvector(courses.title || courses.description) document,
+    to_tsquery('low') query,
+    
+    SIMILARITY('low', courses.title || courses.description) similarity
+WHERE query @@ document OR similarity > 0;
+
+select cd.directory_name, cst.synch_status_token  from cwd_directory cd inner join cwd_synchronization_token cst on cd.id = cst.directory_id;
+
+
+create database inventorydb;
+/c inventorydb
+
+Inventory db
+
+tables
+Product,Location,Stock, Product type
+
+Create Type ProductType As Enum('Electronics','Garments','Furniture', 'Kitchen Appliances');
+
+
+Create table Product(Product_Id bigserial Primary Key, Product_Name varchar(150) Not Null, 
+Buffer_level smallint constraint buffer_level_constr Check(Buffer_level>0), Product_Type ProductType);
+
+insert into Product(Product_Name,Buffer_level,Product_Type) values('Laptop',100,'Electronics');
+
+
+
+Create table Location(Regional_Code smallint primary key , Address text not null, Contact_Number bigint);
+
+insert into location (Regional_Code,Address,Contact_Number) values (44,'Mylapore, Chennai-5',1234567890);
+
+to list the tables
+\dt
+
+to list the realtions for specific table
+\dt+ location
+
+to describe the table
+
+\d product
+
+create sequence invoice_no_seq AS bigint;
+
+Create table Stock(Invoice_No bigint NOT NULL DEFAULT nextval('invoice_no_seq') primary key, DOP date, Qty smallint, Cost bigint, Product_Id bigint references product(Product_Id), Regional_Code smallint references location(Regional_code));
+
+insert into Stock (DOP,Qty,Cost,Product_Id,Regional_Code) values('2021-02-22',65,45000,1,44);
+
+select p.product_name,l.address,s.qty,s.cost  from stock s inner join product p on s.product_id=p.product_id inner join location l on s.regional_code=l.regional_code;
+
+
+create view stock_product_loc_view as select p.product_name,l.address,s.qty,s.cost  from stock s inner join product p on s.product_id=p.product_id inner join location l on s.regional_code=l.regional_code;
+
+
+
+
+
+create materialized view stock_product_loc_mview as select p.product_name,l.address,s.qty,s.cost  from stock s inner join product p on s.product_id=p.product_id inner join location l on s.regional_code=l.regional_code;
+
+Refresh MATERIALIZED view stock_product_loc_mview;
+
+#try with oracle
+create materialized view stock_product_loc_weeklyview  REFRESH COMPLETE START WITH CURRENT_DATE NEXT CURRENT_DATE + 7 as select p.product_name,l.address,s.qty,s.cost  from stock s inner join product p on s.product_id=p.product_id inner join location l on s.regional_code=l.regional_code;
+
+
+SELECT
+    tablename,
+    indexname,
+    indexdef
+FROM
+    pg_indexes
+WHERE
+    schemaname = 'public'
+ORDER BY
+    tablename,
+    indexname;
+    
+create index titlehashindex on courses using Hash(title);
+
+#import the data
+\copy location from 'd:/locationdata.csv' delimiter ',' csv header;
+
+\copy location from 'd:/locationdata.csv' delimiter ',' csv header;
+
+\copy location to 'd:/exportedlocationdata.csv' delimiter ',' csv header;
+========================================================
+\copy (select row_to_json(location_row) from (select regional_code,address,contact_number from location) location_row) TO 'd:/data.json'
+
+\copy crudeoil from 'd:/crudeoilprice.json'
+
+\copy (select regional_code from location) to 'd:/regionaldata.csv' delimiter ',' csv header;
+
+#partition
+
+partition
+
+
+Create Type StatusType As Enum('Project','Resource Pool','SL', 'Left');
+
+create table employee (Employee_No serial, Name varchar(100), Status StatusType) PARTITION BY LIST(Status);
+CREATE TABLE employee_project PARTITION OF employee FOR VALUES IN ('Project');
+
+CREATE TABLE employee_rp PARTITION OF employee FOR VALUES IN ('Resource Pool');
+
+CREATE TABLE employee_sl PARTITION OF employee FOR VALUES IN ('SL');
+
+CREATE TABLE employee_left PARTITION OF employee FOR VALUES IN ('Left');
+
+insert into employee (Name,Status) values('Parameswari','Project');
+
+insert into employee (Name,Status) values('Bala','Project');
+
+
+insert into employee (Name,Status) values('Vignesh','Resource Pool');
+
+insert into employee (Name,Status) values('Shantha','SL');
+
+
+insert into employee (Name,Status) values('Arun','Left');
+
+#range patition
+RANGE Partition
+create table transaction(Transaction_Id bigserial primary key,
+Amount bigint, DOT date) PARTITION BY RANGE(Transaction_Id);
+
+CREATE TABLE tran_first PARTITION OF transaction FOR VALUES FROM (MINVALUE) TO (250000);
+CREATE TABLE tran_two PARTITION OF transaction FOR VALUES FROM (251000) TO (500000);
+CREATE TABLE tran_three PARTITION OF transaction FOR VALUES FROM (500001) TO (1000000);
+
+insert into transaction (amount,dot) values (10000, now());
+
+
+#multi level
+Multi level partition
+CREATE TABLE Order11(Order_Id bigserial, status TEXT, amount NUMERIC) PARTITION BY LIST(status);
+CREATE TABLE order_active PARTITION OF Order11 FOR VALUES IN ('ACTIVE','RECURRING','COMPLETED') PARTITION BY RANGE(amount);
+CREATE TABLE order_amount_small PARTITION OF order_active FOR VALUES FROM (MINVALUE) TO (1000) PARTITION BY HASH(Order_Id);
+CREATE TABLE order_part11 PARTITION OF order_amount_small FOR VALUES WITH (modulus 2, remainder 0);
+CREATE TABLE order_part12 PARTITION OF order_amount_small FOR VALUES WITH (modulus 2, remainder 1);
+CREATE TABLE order_other PARTITION OF Order11 DEFAULT PARTITION BY RANGE(amount);
+CREATE TABLE order_amount_large PARTITION OF order_other FOR VALUES FROM (1001) TO (MAXVALUE) PARTITION BY HASH(Order_Id);
+CREATE TABLE order_part21 PARTITION OF order_amount_large FOR VALUES WITH (modulus 2, remainder 0);
+CREATE TABLE order_part22 PARTITION OF order_amount_large FOR VALUES WITH (modulus 2, remainder 1);
+
+
+#backup and restore
+
+
+pg_dump.exe -U admin -d inventorydb -f c:/backup/invdb_backup.sql
+===================================================================
+psql.exe -U postgres -d inventorydb - W -f c:/backup/invdb_backup.sql
