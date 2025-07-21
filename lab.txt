@@ -23,5 +23,7 @@ sudo apt install git
 git version
 # to list all the databases
 \l
+#to create database 
+create database bankdb;
 
 
