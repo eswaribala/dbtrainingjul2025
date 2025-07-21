@@ -32,6 +32,8 @@ create database bankdb;
 git clone https://github.com/eswaribala/dbtrainingjul2025
 #to run .sql file
 \i /home/ubuntu-user/Documents/Labs/Lab01/dbtrainingjul2025/bank.sql
+#to see list of tables
+\dt
 
 
 
