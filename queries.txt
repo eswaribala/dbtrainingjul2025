@@ -74,6 +74,7 @@ name FullName);
 insert into member (name) values(('Parameswari','bala',''));
 
 
+
 #ts vector and ts query
 CREATE TABLE courses
 (id SERIAL PRIMARY KEY, 
