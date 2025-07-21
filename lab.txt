@@ -3,3 +3,7 @@ sudo service postgresql status
 sudo systemctl status postgresql
 #to login to postgres
 sudo -i -u postgres
+#to write query,type
+psql
+
+
