@@ -34,6 +34,7 @@ git clone https://github.com/eswaribala/dbtrainingjul2025
 \i /home/ubuntu-user/Documents/Labs/Lab01/dbtrainingjul2025/bank.sql
 #to see list of tables
 \dt
-
+#to list all colums in table
+\d customer
 
 
