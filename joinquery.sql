@@ -8,3 +8,5 @@ select  sum(t.amount)  from customer c inner join transaction t on c.account_no=
 select  sum(t.amount)  from customer c inner join transaction t on c.account_no=t.account_no_fk group by c.address having c.address like 'pune';
 select max(runing_total) from account where runing_total <(select max(runing_total) from account);
 select average_amount from (select avg(runing_total) as average_amount from account) as stats;
+
+create view customer_transaction as select  sum(t.amount)  from customer c inner join transaction t on c.account_no=t.account_no_fk group by c.gender;
