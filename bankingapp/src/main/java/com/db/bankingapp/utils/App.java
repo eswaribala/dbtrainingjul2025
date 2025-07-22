@@ -18,5 +18,16 @@ public class App {
         int portNumber=015;
         System.out.println("Port Number: "+portNumber);
         float balance=100.00f;
+        int decimalNumber=5;
+        int reminderNumber=0;
+        StringBuilder binary=new StringBuilder("");
+        while(decimalNumber>0){
+            reminderNumber=decimalNumber%2;
+            binary.append(reminderNumber);
+            decimalNumber=decimalNumber/2;
+        }
+
+        System.out.println("Binary: "+binary.reverse().toString());
+
     }
 }
