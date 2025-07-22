@@ -6,3 +6,4 @@ select  c.account_no,c.name,a.runing_total from customer c full outer join accou
 select  sum(t.amount)  from customer c inner join transaction t on c.account_no=t.account_no_fk group by c.gender;
 select  sum(t.amount)  from customer c inner join transaction t on c.account_no=t.account_no_fk group by c.gender having sum(t.amount) > 500;
 select  sum(t.amount)  from customer c inner join transaction t on c.account_no=t.account_no_fk group by c.address having c.address like 'pune';
+select max(runing_total) from account where runing_total <(select max(runing_total) from account);
