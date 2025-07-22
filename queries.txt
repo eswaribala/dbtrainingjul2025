@@ -273,6 +273,8 @@ ORDER BY
     
 create index titlehashindex on courses using Hash(title);
 
+create index runing_total_index on account(runing_total);
+
 #import the data
 \copy location from 'd:/locationdata.csv' delimiter ',' csv header;
 
