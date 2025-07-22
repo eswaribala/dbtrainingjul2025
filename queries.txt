@@ -84,7 +84,7 @@ INSERT INTO bank_user (name, address) VALUES
       "geo": {
         "lat": "-37.3159",
         "lng": "81.1496"
-      }}'));
+      }}');
 
 SELECT name, ST_AsText(geom) FROM geometries;
 
