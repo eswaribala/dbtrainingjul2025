@@ -12,5 +12,11 @@ public class App {
         System.out.println("Name: "+name);
         System.out.println("Address: "+address);
         System.out.println("Account No: "+accountNo);
+        //literals
+        int memoryAddress=0xFD;
+        System.out.println("Memory Address: "+memoryAddress);
+        int portNumber=015;
+        System.out.println("Port Number: "+portNumber);
+        float balance=100.00f;
     }
 }
