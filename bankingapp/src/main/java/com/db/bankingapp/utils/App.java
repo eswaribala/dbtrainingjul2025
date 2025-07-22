@@ -21,6 +21,7 @@ public class App {
         int decimalNumber=5;
         int reminderNumber=0;
         StringBuilder binary=new StringBuilder("");
+        //decimal to binary conversion
         while(decimalNumber>0){
             reminderNumber=decimalNumber%2;
             binary.append(reminderNumber);
