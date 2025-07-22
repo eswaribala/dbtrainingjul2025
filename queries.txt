@@ -71,6 +71,20 @@ INSERT INTO employees (name, data) VALUES
 ('Alice', '{"age": 30, "skills": ["SQL", "Python"]}'),
 ('Bob', '{"age": 25, "skills": ["Java", "React"]}');
 
+CREATE TABLE bank_user (
+    id SERIAL PRIMARY KEY,
+    name TEXT not null,
+    address JSONB  -- store nested info
+);
+INSERT INTO bank_user (name, address) VALUES
+('Leanne Graham', '{ "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }}'));
 
 SELECT name, ST_AsText(geom) FROM geometries;
 
