@@ -1,6 +1,8 @@
 package com.db.bankingapp.dao;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileHandlerImpl implements FileHandler {
@@ -18,6 +20,17 @@ public class FileHandlerImpl implements FileHandler {
                 status=true;
             }
 
+
+        return status;
+    }
+
+    @Override
+    public boolean writeMessage(File file, String msg) throws IOException {
+        boolean status=false;
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        bw.write(msg);
+        bw.close();
+        status=true;
 
         return status;
     }
