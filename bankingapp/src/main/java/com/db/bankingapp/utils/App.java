@@ -1,5 +1,6 @@
 package com.db.bankingapp.utils;
 
+import com.db.bankingapp.models.Customer;
 import com.github.javafaker.Faker;
 
 public class App {
@@ -29,6 +30,7 @@ public class App {
         }
 
         System.out.println("Binary: "+binary.reverse().toString());
+        Customer customer=new Customer();
 
     }
 }
