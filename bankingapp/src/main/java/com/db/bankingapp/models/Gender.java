@@ -1,4 +1,4 @@
-package com.db.bankingapp.utils;
+package com.db.bankingapp.models;
 
 public enum Gender {
     MALE,FEMALE,OTHER;

@@ -1,22 +1,34 @@
 package com.db.bankingapp.models;
 
-import com.db.bankingapp.utils.Gender;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@ToString
 public class Customer {
-    private long accountNo;
-    private FullName  fullName;
-    private String email;
-    private String password;
-    private long contactNo;
+    @Getter
+    protected long accountNo;
+    @Getter
+    @Setter
+    protected FullName  fullName;
+    @Getter
+    @Setter
+    protected String email;
+    @Getter
+    @Setter
+    protected String password;
+    @Getter
+    @Setter
+    protected long contactNo;
+    @Getter
+    @Setter
+    protected Address address;
 
-    private Gender gender;
+    public Customer(long accountNo) {
+        this.accountNo = accountNo;
+    }
 
-    private Address address;
-
-
-
-
+    public Customer() {
+    }
 }

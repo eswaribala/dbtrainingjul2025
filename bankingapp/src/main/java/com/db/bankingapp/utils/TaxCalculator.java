@@ -1,5 +1,6 @@
 package com.db.bankingapp.utils;
 
+import com.db.bankingapp.models.Gender;
 import com.github.javafaker.Faker;
 
 import java.util.Random;
