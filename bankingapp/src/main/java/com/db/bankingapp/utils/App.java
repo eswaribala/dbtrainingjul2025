@@ -5,13 +5,30 @@ import com.db.bankingapp.models.Customer;
 import com.db.bankingapp.models.Individual;
 import com.github.javafaker.Faker;
 
+import java.util.Arrays;
+
 public class App {
     public static void main(String[] args) {
         try {
+            try{
+
+                int[] array=new int[args.length-1];
+                System.out.println(array[0]);
+
+
+            }catch(ArrayIndexOutOfBoundsException e){
+                System.out.println(e.getMessage());
+
+            }
+
+
             System.out.println(10/args.length);
+
+
             System.out.println(args[0]);
             System.out.println(args[3]);
-        }catch(ArithmeticException|ArrayIndexOutOfBoundsException e){
+
+        }catch(NegativeArraySizeException|ArithmeticException|ArrayIndexOutOfBoundsException e){
             System.out.println(e.getMessage());
         }
 
