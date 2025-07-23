@@ -11,4 +11,8 @@ public class Customer {
 
     private Gender gender;
 
+    private Address address;
+
+
+
 }
