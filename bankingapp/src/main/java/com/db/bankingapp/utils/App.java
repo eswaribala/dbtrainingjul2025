@@ -1,10 +1,20 @@
 package com.db.bankingapp.utils;
 
+import com.db.bankingapp.models.Corporate;
 import com.db.bankingapp.models.Customer;
+import com.db.bankingapp.models.Individual;
 import com.github.javafaker.Faker;
 
 public class App {
     public static void main(String[] args) {
+        try {
+            System.out.println(10/args.length);
+            System.out.println(args[0]);
+            System.out.println(args[3]);
+        }catch(ArithmeticException|ArrayIndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("Rocking with java");
         Faker faker= new Faker();
         long accountNo=faker.number().numberBetween(100000,1000000);
@@ -31,6 +41,7 @@ public class App {
 
         System.out.println("Binary: "+binary.reverse().toString());
         //Customer customer=new Customer();
+
 
     }
 }
