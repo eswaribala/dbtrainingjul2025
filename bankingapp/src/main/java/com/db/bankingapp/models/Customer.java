@@ -1,7 +1,9 @@
 package com.db.bankingapp.models;
 
 import com.db.bankingapp.utils.Gender;
+import lombok.Data;
 
+@Data
 public class Customer {
     private long accountNo;
     private FullName  fullName;
