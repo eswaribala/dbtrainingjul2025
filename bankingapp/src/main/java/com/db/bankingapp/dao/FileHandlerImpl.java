@@ -27,8 +27,12 @@ public class FileHandlerImpl implements FileHandler {
     @Override
     public boolean writeMessage(File file, String msg) throws IOException {
         boolean status=false;
-        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
         bw.write(msg);
+        bw.write("\n");
+        bw.write("---------------------------------------------");
+        bw.write("\n");
+
         bw.close();
         status=true;
 
