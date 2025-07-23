@@ -2,6 +2,7 @@ package com.db.bankingapp.models;
 
 import com.db.bankingapp.utils.Gender;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 public class Customer {
@@ -14,6 +15,7 @@ public class Customer {
     private Gender gender;
 
     private Address address;
+
 
 
 
