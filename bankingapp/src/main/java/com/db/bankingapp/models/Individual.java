@@ -7,7 +7,7 @@ import lombok.ToString;
 import java.time.LocalDate;
 @Data
 @ToString(callSuper = true)
-public class Individual extends Customer{
+public class Individual extends Customer {
 
     private Gender gender;
     private LocalDate birthDate;
