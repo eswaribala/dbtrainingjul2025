@@ -35,6 +35,7 @@ public class IndividualApp {
         individual.setGender(getRandomGender());
         individual.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         System.out.println(individual);
+        System.out.println(individual.investmentIR());
 
     }
     public static Gender getRandomGender(){

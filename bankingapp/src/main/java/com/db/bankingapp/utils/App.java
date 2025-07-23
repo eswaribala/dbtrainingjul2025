@@ -30,7 +30,7 @@ public class App {
         }
 
         System.out.println("Binary: "+binary.reverse().toString());
-        Customer customer=new Customer();
+        //Customer customer=new Customer();
 
     }
 }

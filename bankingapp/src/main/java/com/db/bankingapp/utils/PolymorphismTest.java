@@ -3,18 +3,15 @@ package com.db.bankingapp.utils;
 import com.db.bankingapp.models.Address;
 import com.db.bankingapp.models.Customer;
 import com.db.bankingapp.models.FullName;
-import com.db.bankingapp.models.Gender;
+import com.db.bankingapp.models.Individual;
 import com.github.javafaker.Faker;
 
-import java.util.Random;
-
-public class CustomerApp {
-
+public class PolymorphismTest {
     public static void main(String[] args) {
-        /*
-        //creating the object
         Faker faker = new Faker();
-        Customer customer=new Customer(faker.number().numberBetween(10000,1000000));
+
+        //assigining individual object to customer
+        Customer customer=new Individual();
         //creating full name object
         FullName fullName=new FullName();
         fullName.setFirstName(faker.name().firstName());
@@ -36,16 +33,10 @@ public class CustomerApp {
         customer.setContactNo(faker.number().numberBetween(9999990000L,9999999999L));
         customer.setPassword(faker.internet().password());
         customer.setAddress(address);
+        //downcasting super class object to sub class
+        //not permitted
+        //class cast exception
+      //  Individual individual=new Customer();
 
-        System.out.println(customer);
-
-*/
     }
-
-    public static Gender getRandomGender(){
-        Random random=new Random();
-        Gender[] values=Gender.values();
-        return values[random.nextInt(values.length)];
-    }
-
 }
