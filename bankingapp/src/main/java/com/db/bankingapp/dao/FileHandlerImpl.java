@@ -10,13 +10,14 @@ public class FileHandlerImpl implements FileHandler {
         boolean status=false;
         if (!file.exists()) {
             file.mkdir();
-        }else{
-            file=new  File(dir,fileName);
+        }
+
+        file=new  File(dir,fileName);
             if(!file.exists()){
                 file.createNewFile();
                 status=true;
             }
-        }
+
 
         return status;
     }
