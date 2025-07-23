@@ -11,6 +11,7 @@ import lombok.ToString;
 
 //abstract class instantiation not possible but it can be inherited
 public abstract class Customer {
+    public static String IFSCCODE="IDBI00080";
     protected long accountNo;
     protected FullName  fullName;
     protected String email;
