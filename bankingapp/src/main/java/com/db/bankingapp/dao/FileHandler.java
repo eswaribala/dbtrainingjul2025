@@ -7,5 +7,6 @@ import java.nio.file.Path;
 public interface FileHandler {
     boolean createFile(String dir, String fileName) throws IOException;
     boolean writeMessage(File file, String msg) throws IOException;
+    void readMessage(File file) throws IOException;
 
 }

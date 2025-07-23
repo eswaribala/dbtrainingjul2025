@@ -18,6 +18,8 @@ public class FileIOApp {
              fileHandler.writeMessage(new File("logs",fileName),faker.lorem().sentence());
          }
 
+         fileHandler.readMessage(new File("logs",fileName));
+
 
     }
 }

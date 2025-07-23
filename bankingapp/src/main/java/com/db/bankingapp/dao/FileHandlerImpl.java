@@ -1,9 +1,6 @@
 package com.db.bankingapp.dao;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class FileHandlerImpl implements FileHandler {
     @Override
@@ -37,5 +34,15 @@ public class FileHandlerImpl implements FileHandler {
         status=true;
 
         return status;
+    }
+
+    @Override
+    public void readMessage(File file) throws IOException {
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
     }
 }
