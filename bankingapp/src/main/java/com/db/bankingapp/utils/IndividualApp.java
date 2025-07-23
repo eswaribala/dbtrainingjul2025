@@ -1,5 +1,6 @@
 package com.db.bankingapp.utils;
 
+import com.db.bankingapp.exceptions.FirstNameException;
 import com.db.bankingapp.models.*;
 import com.github.javafaker.Faker;
 
@@ -15,7 +16,13 @@ public class IndividualApp {
             Individual individual=new Individual();
             //creating full name object
             FullName fullName=new FullName();
-            fullName.setFirstName(faker.name().firstName());
+            try {
+                fullName.setFirstName(faker.number().digits(10));
+            }
+            catch(FirstNameException e){
+                System.out.println(e.getMessage());
+
+            }
             fullName.setLastName(faker.name().lastName());
             fullName.setMiddleName("");
 
