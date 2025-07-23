@@ -1,9 +1,12 @@
 package com.db.bankingapp.models;
 
+import com.db.bankingapp.exceptions.ContactNoException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.regex.Pattern;
 
 @Data
 @AllArgsConstructor
@@ -17,6 +20,17 @@ public abstract class Customer {
     protected String email;
     protected String password;
     protected long contactNo;
+
+    public void setContactNo(long contactNo) throws ContactNoException {
+        String contactNoPattern="^\\d{10}$";
+
+        if(Pattern.matches(contactNoPattern, String.valueOf(contactNo))){
+            this.contactNo = contactNo;
+        }else
+            throw new ContactNoException("Contact Number should be in 10 digits");
+
+    }
+
     protected Address address;
 
     public Customer(long accountNo) {

@@ -1,5 +1,6 @@
 package com.db.bankingapp.utils;
 
+import com.db.bankingapp.exceptions.ContactNoException;
 import com.db.bankingapp.exceptions.FirstNameException;
 import com.db.bankingapp.models.*;
 import com.github.javafaker.Faker;
@@ -35,7 +36,11 @@ public class IndividualApp {
             individual.setAccountNo(faker.number().numberBetween(10000,1000000));
             individual.setFullName(fullName);
             individual.setEmail(faker.internet().emailAddress());
-            individual.setContactNo(faker.number().numberBetween(9999990000L,9999999999L));
+            try {
+                individual.setContactNo(faker.number().numberBetween(9999999900L, 9999999999L));
+            }catch (ContactNoException e){
+                System.out.println(e.getMessage());
+            }
             individual.setPassword(faker.internet().password());
             individual.setAddress(address);
             individual.setGender(getRandomGender());

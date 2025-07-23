@@ -30,7 +30,7 @@ public class PolymorphismTest {
         customer.setFullName(fullName);
 
         customer.setEmail(faker.internet().emailAddress());
-        customer.setContactNo(faker.number().numberBetween(9999990000L,9999999999L));
+       // customer.setContactNo(faker.number().numberBetween(9999990000L,9999999999L));
         customer.setPassword(faker.internet().password());
         customer.setAddress(address);
         //downcasting super class object to sub class
