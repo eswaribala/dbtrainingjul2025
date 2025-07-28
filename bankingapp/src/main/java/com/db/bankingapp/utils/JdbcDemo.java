@@ -15,10 +15,11 @@ import java.time.ZoneId;
 import java.util.Random;
 
 public class JdbcDemo {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, ContactNoException {
 
         IndividualDao individualDao = new IndividualDaoImpl();
         Faker faker = new Faker();
+        /*
         Individual individual=null;
         for (int i = 0; i < 5; i++) {
             //subclass object
@@ -55,7 +56,17 @@ public class JdbcDemo {
             individual.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             individualDao.insertIndividual(individual);
 
+
+
         }
+
+         */
+
+        for(Individual individual: individualDao.getAllIndividuals()){
+            System.out.println(individual);
+
+        }
+
 
     }
     public static Gender getRandomGender(){
