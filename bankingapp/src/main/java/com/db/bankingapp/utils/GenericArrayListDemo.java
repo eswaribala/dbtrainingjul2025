@@ -52,7 +52,14 @@ public class GenericArrayListDemo {
 
         //sort
 
-        corporateList.sort(new  CorporateSorter());
+        Comparator<Corporate> comparator=new Comparator<Corporate>() {
+            @Override
+            public int compare(Corporate o1, Corporate o2) {
+               return Long.compare(o1.getAccountNo(),o2.getAccountNo());
+            }
+        };
+
+        corporateList.sort(comparator);
 
         //retrieve 10 company details
         System.out.println("Corporate Details sorted");
