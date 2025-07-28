@@ -2,10 +2,7 @@ package com.db.bankingapp.utils;
 
 import com.github.javafaker.Faker;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Set;
@@ -28,6 +25,11 @@ public class DateTimeDemo {
 
         System.out.println(ChronoUnit.YEARS.between(dob,now));
 
+        //find age accurate
+
+        Period period= Period.between(dob,now);
+
+        System.out.println(period.getYears()+","+period.getMonths()+","+period.getDays());
 
     }
 }
