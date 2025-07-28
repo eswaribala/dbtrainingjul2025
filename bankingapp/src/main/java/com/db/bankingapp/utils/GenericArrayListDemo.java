@@ -51,13 +51,16 @@ public class GenericArrayListDemo {
         }
 
         //sort
-
+        /*
         Comparator<Corporate> comparator=new Comparator<Corporate>() {
             @Override
             public int compare(Corporate o1, Corporate o2) {
                return Long.compare(o1.getAccountNo(),o2.getAccountNo());
             }
         };
+        */
+        //lambda expression
+        Comparator<Corporate> comparator=(o1,o2)->Long.compare(o1.getAccountNo(),o2.getAccountNo());
 
         corporateList.sort(comparator);
 
