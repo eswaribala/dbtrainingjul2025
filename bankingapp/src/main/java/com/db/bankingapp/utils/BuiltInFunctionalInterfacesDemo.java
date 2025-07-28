@@ -6,6 +6,7 @@ import com.db.bankingapp.models.Address;
 import com.github.javafaker.Faker;
 
 import java.util.Scanner;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class BuiltInFunctionalInterfacesDemo {
@@ -36,7 +37,16 @@ public class BuiltInFunctionalInterfacesDemo {
 
         Function<Long, Address> function=(actNo)->addressDao.getAddress(accountNo);
 
-        System.out.println(function.apply(accountNo));
+        Address addr= function.apply(accountNo);
+        System.out.println(addr);
+
+        //BiFunction
+
+        BiFunction<Address, Address,Boolean> addressComparison=(a1,a2)->
+                a1.getCity().equals(a2.getCity())&&a1.getState().equals(a2.getState());
+
+       System.out.println(addressComparison.apply(addr,addr));
+
 
 
     }
