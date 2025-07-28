@@ -3,12 +3,12 @@ package com.db.bankingapp.utils;
 import com.db.bankingapp.dao.CorporateDao;
 import com.db.bankingapp.dao.CorporateDaoImpl;
 import com.db.bankingapp.exceptions.ContactNoException;
-import com.db.bankingapp.models.Address;
-import com.db.bankingapp.models.CompanyType;
-import com.db.bankingapp.models.Corporate;
-import com.db.bankingapp.models.FullName;
+import com.db.bankingapp.models.*;
 import com.github.javafaker.Faker;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Random;
 
 public class GenericArrayListDemo {
@@ -21,7 +21,7 @@ public class GenericArrayListDemo {
         FullName fullName = null;
         Address address = null;
 
-        for(int i=0;i<100;i++){
+        for(int i=0;i<10;i++){
             corporate = new Corporate();
             fullName = new FullName();
             fullName.setFirstName(faker.name().firstName());
@@ -43,12 +43,22 @@ public class GenericArrayListDemo {
 
         }
 
-        //retrieve 100 company details
-        for(Corporate corporate1 : corporateDao.getAllCorporates()){
+        //retrieve 10 company details
+        System.out.println("Corporate Details Unsorted");
+        List<Corporate> corporateList = corporateDao.getAllCorporates();
+        for(Corporate corporate1 : corporateList){
             System.out.println(corporate1);
         }
 
+        //sort
 
+        corporateList.sort(new  CorporateSorter());
+
+        //retrieve 10 company details
+        System.out.println("Corporate Details sorted");
+        for(Corporate corporate1 : corporateList){
+            System.out.println(corporate1);
+        }
 
 
     }
