@@ -5,7 +5,7 @@ import com.db.bankingapp.dao.IndividualDaoImpl;
 
 import java.sql.SQLException;
 
-public class JdbDemo {
+public class JdbcDemo {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         IndividualDao individualDao = new IndividualDaoImpl();
