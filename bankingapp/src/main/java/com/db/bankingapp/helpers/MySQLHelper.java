@@ -13,7 +13,9 @@ public class MySQLHelper {
         String url = rb.getString("url");
         String username = rb.getString("userName");
         String password = rb.getString("password");
+        //Registers the driver
         Class.forName(driver);
+        //creating the connection
         return  DriverManager.getConnection(url,username,password);
     }
 }
