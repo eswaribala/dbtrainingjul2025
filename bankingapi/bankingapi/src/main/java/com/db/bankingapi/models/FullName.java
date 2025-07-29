@@ -9,7 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Data
-//@Component
+//bean
+@Component
 @Scope("prototype")
 public class FullName {
 

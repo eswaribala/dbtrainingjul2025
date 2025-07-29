@@ -1,6 +1,7 @@
 package com.db.bankingapi;
 
 import com.db.bankingapi.models.FullName;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,9 @@ import java.util.Arrays;
 @SpringBootApplication
 public class BankingapiApplication implements CommandLineRunner {
 
+	@Autowired
+	private FullName fullName,fullName1;
+
 	public static void main(String[] args) {
 		SpringApplication.run(BankingapiApplication.class, args);
 	}
@@ -18,6 +22,15 @@ public class BankingapiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Rocking with sb");
+		fullName.setFirstName("Parameswari");
+		fullName.setLastName("Bala");
+        System.out.println(fullName.getFirstName() + " " + fullName.getLastName());
+		fullName1.setFirstName("Vignesh");
+		fullName1.setLastName("Manickam");
+		System.out.println(fullName1.getFirstName() + " " + fullName1.getLastName());
+
+
+		/*
 		//spring container
 		AnnotationConfigApplicationContext annotationConfigApplicationContext =
 				new AnnotationConfigApplicationContext();
@@ -41,5 +54,7 @@ public class BankingapiApplication implements CommandLineRunner {
 		System.out.println(fullName.getFirstName());
 		System.out.println(fullName1.getFirstName());
 		System.out.println(fullName2.getFirstName());
+
+		 */
 	}
 }
