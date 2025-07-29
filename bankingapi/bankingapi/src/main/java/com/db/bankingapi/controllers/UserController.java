@@ -15,7 +15,7 @@ public class UserController {
     private RestClient restClient;
 
     @GetMapping("/v1.0")
-    public ResponseEntity<String> getUsers(){
+    public ResponseEntity<?> getUsers(){
         String response=restClient.get().uri("https://jsonplaceholder.typicode.com/users")
                 .retrieve()
                 .body(String.class);

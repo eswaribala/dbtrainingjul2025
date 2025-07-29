@@ -24,6 +24,7 @@ public class BankingapiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Rocking with sb");
+		/*
 		fullName.setFirstName("Parameswari");
 		fullName.setLastName("Bala");
         System.out.println(fullName.getFirstName() + " " + fullName.getLastName());
@@ -35,7 +36,7 @@ public class BankingapiApplication implements CommandLineRunner {
 				.retrieve()
 				.body(String.class);
 		System.out.println(response);
-
+*/
 
 
 		/*
