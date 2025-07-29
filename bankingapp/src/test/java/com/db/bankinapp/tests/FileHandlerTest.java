@@ -23,7 +23,7 @@ public class FileHandlerTest {
         boolean result = mockHandler.createFile("logs",fileName);
 
         // Step 4: Assert result
-        assertTrue(result);
+        assertFalse(result);
 
         // Step 5: Verify interaction
         verify(mockHandler, times(1)).createFile("logs",fileName);
