@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -17,11 +18,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class IndividualTest {
 
-    private static Individual individual;
-    private static FullName fullName;
-
+    private Individual individual;
+    private  FullName fullName;
+/*
     @BeforeAll
     public static void createInstance(){
+        individual=new Individual();
+        fullName=new FullName();
+    }
+    */
+    @BeforeEach
+    public void createEachInstance(){
         individual=new Individual();
         fullName=new FullName();
     }
@@ -79,6 +86,28 @@ public class IndividualTest {
         assertEquals("Contact Number should be in 10 digits",contactNoException.getMessage());
 
 
+    }
+
+    @Nested
+    class WhenIndividualIsNew{
+
+        @Test
+        public void testGender(){
+            individual.setGender(Gender.MALE);
+            assertSame(Gender.MALE, individual.getGender());
+        }
+        @Test
+        public void testDOB(){
+            individual.setBirthDate(LocalDate.of(1970,12,2));
+            assertTrue(ChronoUnit.YEARS.between(individual.getBirthDate(), LocalDate.now()) >18);
+
+        }
+    }
+
+    @AfterEach
+    public void testEnds(){
+        individual=null;
+        fullName=null;
     }
 
 }
