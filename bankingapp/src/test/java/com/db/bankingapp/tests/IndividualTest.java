@@ -6,6 +6,7 @@ import com.db.bankingapp.models.FullName;
 import com.db.bankingapp.models.Gender;
 import com.db.bankingapp.models.Individual;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith({LogTimeExtension.class})
 public class IndividualTest {
 
     private Individual individual;
@@ -35,7 +37,8 @@ public class IndividualTest {
 
     @Test
     @Disabled
-    public void testIndividualInstanceNotNull(){
+    public void testIndividualInstanceNotNull() throws InterruptedException {
+        Thread.sleep(1000);
         assertNotNull(individual);
     }
 
@@ -43,8 +46,8 @@ public class IndividualTest {
     @CsvFileSource(resources = "individual.csv", numLinesToSkip = 1)
     @DisplayName("Testing CSV Parameterized call")
     @Tag("parameter_group")
-    public void testDOB(String accountNo,String firstName,String lastName,String middleName,String email,String contactNo,String password, String gender,String dob) {
-
+    public void testDOB(String accountNo,String firstName,String lastName,String middleName,String email,String contactNo,String password, String gender,String dob) throws InterruptedException {
+        Thread.sleep(1000);
         fullName.setFirstName(firstName);
         fullName.setLastName(lastName);
         fullName.setMiddleName(middleName);
