@@ -1,4 +1,4 @@
-package com.db.bankinapp.tests;
+package com.db.bankingapp.tests;
 
 import com.db.bankingapp.dao.FileHandler;
 import com.github.javafaker.Faker;
