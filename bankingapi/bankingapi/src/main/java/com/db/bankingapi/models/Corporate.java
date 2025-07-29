@@ -1,0 +1,17 @@
+package com.db.bankingapi.models;
+
+import com.github.javafaker.Faker;
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@ToString(callSuper = true)
+public class Corporate extends Customer {
+
+    private CompanyType companyType;
+
+    @Override
+    public double investmentIR() {
+        return  new Faker().number().randomDouble(2,2,4);
+    }
+}
