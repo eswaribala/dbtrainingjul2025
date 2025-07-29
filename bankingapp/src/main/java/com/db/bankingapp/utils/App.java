@@ -2,6 +2,7 @@ package com.db.bankingapp.utils;
 
 import com.db.bankingapp.models.Corporate;
 import com.db.bankingapp.models.Customer;
+import com.db.bankingapp.models.FullName;
 import com.db.bankingapp.models.Individual;
 import com.github.javafaker.Faker;
 
@@ -9,6 +10,10 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
+        FullName fullName=new FullName();
+        fullName.setFirstName("24343536");
+/*
+
         //nested try catch
         try {
             try{
@@ -51,7 +56,7 @@ public class App {
 
         System.out.println("Binary: "+binary.reverse().toString());
         //Customer customer=new Customer();
-
+*/
 
     }
 }

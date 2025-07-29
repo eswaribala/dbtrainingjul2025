@@ -1,6 +1,7 @@
 package com.db.bankingapp.tests;
 
 import com.db.bankingapp.exceptions.ContactNoException;
+import com.db.bankingapp.exceptions.FirstNameException;
 import com.db.bankingapp.models.FullName;
 import com.db.bankingapp.models.Gender;
 import com.db.bankingapp.models.Individual;
@@ -27,7 +28,7 @@ public class IndividualTest {
     }
 
     @Test
-    public void individualInstanceNotNullTest(){
+    public void testIndividualInstanceNotNull(){
         assertNotNull(individual);
     }
 
@@ -51,6 +52,30 @@ public class IndividualTest {
                 () ->  assertTrue(individual.getEmail().contains("@") ),
                 () ->  assertTrue(individual.getPassword().length()>4)
         );
+
+    }
+
+    @Test
+    public void testFirNameException(){
+
+
+        FirstNameException firstNameException=assertThrows(FirstNameException.class,()->{
+            fullName.setFirstName("58694369652");
+        });
+        assertEquals("First Name not in alphabets",firstNameException.getMessage());
+
+
+    }
+
+    @Test
+    public void testContactNoException(){
+
+
+        ContactNoException contactNoException=assertThrows(ContactNoException.class,()->{
+            individual.setContactNo(9952032862345L);
+        });
+        assertEquals("Contact Number should be in 10 digits",contactNoException.getMessage());
+
 
     }
 
