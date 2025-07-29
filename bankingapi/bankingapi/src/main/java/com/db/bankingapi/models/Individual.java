@@ -1,6 +1,5 @@
 package com.db.bankingapi.models;
 
-import com.github.javafaker.Faker;
 import lombok.Data;
 import lombok.ToString;
 
@@ -13,8 +12,5 @@ public class Individual extends Customer {
     private LocalDate birthDate;
 
 
-    @Override
-    public double investmentIR() {
-        return  new Faker().number().randomDouble(2,5,8);
-    }
+
 }
