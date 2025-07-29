@@ -35,8 +35,11 @@ public class BankingapiApplication implements CommandLineRunner {
 
 		FullName fullName1 = annotationConfigApplicationContext.getBean(FullName.class);
         fullName1.setFirstName("Bala");
+
+		FullName fullName2 = annotationConfigApplicationContext.getBean(FullName.class);
+		fullName2.setFirstName("Samyuktha");
 		System.out.println(fullName.getFirstName());
 		System.out.println(fullName1.getFirstName());
-
+		System.out.println(fullName2.getFirstName());
 	}
 }
