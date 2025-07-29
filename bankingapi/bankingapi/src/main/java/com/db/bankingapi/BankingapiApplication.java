@@ -24,14 +24,19 @@ public class BankingapiApplication implements CommandLineRunner {
 
 		annotationConfigApplicationContext.register(FullName.class);
 		annotationConfigApplicationContext.refresh();
-		//creating bean instance
+		//creating bean instance--singleton object
 		FullName fullName = annotationConfigApplicationContext.getBean(FullName.class);
+		fullName.setFirstName("Parameswari");
 		//check object existence
 		if(fullName!=null)
 			System.out.println(fullName.getFirstName());
 		else
 			System.out.println("Object not created");
 
+		FullName fullName1 = annotationConfigApplicationContext.getBean(FullName.class);
+        fullName1.setFirstName("Bala");
+		System.out.println(fullName.getFirstName());
+		System.out.println(fullName1.getFirstName());
 
 	}
 }
