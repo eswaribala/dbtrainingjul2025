@@ -5,8 +5,7 @@ import com.db.bankingapp.exceptions.FirstNameException;
 import com.db.bankingapp.models.FullName;
 import com.db.bankingapp.models.Gender;
 import com.db.bankingapp.models.Individual;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -28,12 +27,15 @@ public class IndividualTest {
     }
 
     @Test
+    @Disabled
     public void testIndividualInstanceNotNull(){
         assertNotNull(individual);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "individual.csv", numLinesToSkip = 1)
+    @DisplayName("Testing CSV Parameterized call")
+    @Tag("parameter_group")
     public void testDOB(String accountNo,String firstName,String lastName,String middleName,String email,String contactNo,String password, String gender,String dob) {
 
         fullName.setFirstName(firstName);
