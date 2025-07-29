@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.web.client.RestClient;
 
 import java.util.Arrays;
 
@@ -14,7 +15,8 @@ public class BankingapiApplication implements CommandLineRunner {
 
 	@Autowired
 	private FullName fullName,fullName1;
-
+	@Autowired
+    private RestClient restClient;
 	public static void main(String[] args) {
 		SpringApplication.run(BankingapiApplication.class, args);
 	}
@@ -28,6 +30,12 @@ public class BankingapiApplication implements CommandLineRunner {
 		fullName1.setFirstName("Vignesh");
 		fullName1.setLastName("Manickam");
 		System.out.println(fullName1.getFirstName() + " " + fullName1.getLastName());
+
+		String response=restClient.get().uri("https://jsonplaceholder.typicode.com/users")
+				.retrieve()
+				.body(String.class);
+		System.out.println(response);
+
 
 
 		/*
