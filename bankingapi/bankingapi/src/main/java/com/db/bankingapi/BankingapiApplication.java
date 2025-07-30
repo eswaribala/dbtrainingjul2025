@@ -15,8 +15,8 @@ import java.util.Arrays;
 @EnableAdminServer
 public class BankingapiApplication implements CommandLineRunner {
 
-	@Autowired
-	private FullName fullName,fullName1;
+	//@Autowired
+	//private FullName fullName,fullName1;
 	@Autowired
     private RestClient restClient;
 	public static void main(String[] args) {

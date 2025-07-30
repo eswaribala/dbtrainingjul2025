@@ -1885,3 +1885,61 @@ java.io.IOException: An established connection was aborted by the software in yo
 2025-07-30T09:53:48,305 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-30T09:53:48,311 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-30T09:53:48,319 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-30T10:43:31,552 [restartedMain] INFO  BankingapiApplication - Starting BankingapiApplication using Java 21.0.5 with PID 27200 (E:\dbtrainingws\bankingapi\bankingapi\target\classes started by param in E:\dbtrainingws\bankingapi\bankingapi)
+2025-07-30T10:43:31,561 [restartedMain] INFO  BankingapiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-30T10:43:31,606 [restartedMain] INFO  DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-30T10:43:31,606 [restartedMain] INFO  DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-30T10:43:32,941 [restartedMain] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-30T10:43:32,965 [restartedMain] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2025-07-30T10:43:34,145 [restartedMain] INFO  TomcatWebServer - Tomcat initialized with port 7074 (http)
+2025-07-30T10:43:34,170 [restartedMain] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7074"]
+2025-07-30T10:43:34,175 [restartedMain] INFO  StandardService - Starting service [Tomcat]
+2025-07-30T10:43:34,176 [restartedMain] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-07-30T10:43:34,299 [restartedMain] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-30T10:43:34,299 [restartedMain] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2692 ms
+2025-07-30T10:43:35,042 [restartedMain] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-30T10:43:35,120 [restartedMain] INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-07-30T10:43:35,161 [restartedMain] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-30T10:43:35,465 [restartedMain] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-30T10:43:35,494 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-07-30T10:43:35,797 [restartedMain] INFO  HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6fdf1a09
+2025-07-30T10:43:35,801 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-07-30T10:43:37,019 [restartedMain] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-30T10:43:37,477 [restartedMain] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-30T10:43:37,497 [restartedMain] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'bankingapiApplication': Unsatisfied dependency expressed through field 'fullName': No qualifying bean of type 'com.db.bankingapi.models.FullName' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-07-30T10:43:37,497 [restartedMain] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-30T10:43:37,501 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-30T10:43:37,507 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-30T10:43:38,527 [restartedMain] WARN  AsyncReporter$BoundedAsyncReporter - Timed out waiting for in-flight spans to send
+2025-07-30T10:43:38,628 [restartedMain] INFO  StandardService - Stopping service [Tomcat]
+2025-07-30T10:43:38,647 [restartedMain] WARN  WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [boundedElastic-evictor-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-30T10:43:38,722 [restartedMain] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-30T10:43:38,813 [restartedMain] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field fullName in com.db.bankingapi.BankingapiApplication required a bean of type 'com.db.bankingapi.models.FullName' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.db.bankingapi.models.FullName' in your configuration.
+
