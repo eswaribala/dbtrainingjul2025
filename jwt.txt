@@ -1,0 +1,10 @@
+{
+    "userName":"eswaribala",
+    "password":"Test@123",
+    "roles":[{
+     "roleName":"ROLE_ADMIN"
+    },
+    {
+        "roleName":"ROLE_USER" 
+    }]
+}
