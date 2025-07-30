@@ -1,5 +1,6 @@
 package com.db.bankingapi.services;
 
+import com.db.bankingapi.exceptions.IndividualNotFoundException;
 import com.db.bankingapi.models.Individual;
 import com.db.bankingapi.repositories.IndividualRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class IndividualAddressImpl implements IndividualService{
+public class IndividualServiceImpl implements IndividualService{
 
     @Autowired
     private IndividualRepository  individualRepository;
     @Override
-    public boolean addIndividual(Individual individual) {
-        return individualRepository.save(individual) != null;
+    public Individual addIndividual(Individual individual) {
+        return individualRepository.save(individual);
 
     }
 
@@ -25,7 +26,7 @@ public class IndividualAddressImpl implements IndividualService{
 
     @Override
     public Individual getIndividualById(Long accountNo) {
-        return individualRepository.findById(accountNo).orElse(null);
+        return individualRepository.findById(accountNo).orElseThrow(()->new IndividualNotFoundException("For the given account number individual not found"));
     }
 
     @Override

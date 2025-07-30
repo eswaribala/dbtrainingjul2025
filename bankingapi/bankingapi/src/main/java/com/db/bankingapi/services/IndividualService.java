@@ -5,7 +5,7 @@ import com.db.bankingapi.models.Individual;
 import java.util.List;
 
 public interface IndividualService {
-    boolean addIndividual(Individual individual);
+    Individual addIndividual(Individual individual);
     List<Individual> getAllIndividuals();
     Individual getIndividualById(Long accountNo);
     Individual updateIndividualEmail(long accountNo, String newEmail);

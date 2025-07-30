@@ -2,10 +2,7 @@ package com.db.bankingapi.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +13,7 @@ import java.util.regex.Pattern;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
+@Builder
 public class FullName {
     @Column(name="first_name", nullable=false,length = 100)
     private String firstName;
