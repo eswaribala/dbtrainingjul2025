@@ -1,31 +1,31 @@
 package com.db.bankingapi.models;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.regex.Pattern;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-//abstract class instantiation not possible but it can be inherited
+@Entity
+@Table(name="Customer")
+@Inheritance(strategy = InheritanceType.JOINED)
+@SuperBuilder
 public class Customer {
-    public static String IFSCCODE="IDBI00080";
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="account_no")
     protected long accountNo;
+    @Embedded
     protected FullName  fullName;
+    @Column(name="email", unique=true, nullable=false,length = 150)
     protected String email;
+    @Column(name="password", nullable=false,length = 10)
     protected String password;
+    @Column(name="contact_no")
     protected long contactNo;
-
-
-
-    protected Address address;
-
-    public Customer(long accountNo) {
-        this.accountNo = accountNo;
-    }
-
-
 }
