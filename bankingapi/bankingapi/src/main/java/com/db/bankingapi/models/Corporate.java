@@ -1,12 +1,21 @@
 package com.db.bankingapi.models;
 
-import lombok.Data;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import java.io.Serializable;
 
 @Data
-@ToString(callSuper = true)
-public class Corporate extends Customer {
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="Corporate")
+@SuperBuilder
+@EqualsAndHashCode(callSuper = false)
+public class Corporate extends Customer implements Serializable {
+    @Enumerated(EnumType.STRING)
+    @Column(name="company_type")
     private CompanyType companyType;
 
 
