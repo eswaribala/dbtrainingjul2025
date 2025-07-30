@@ -2394,3 +2394,29 @@ Caused by: java.lang.ClassNotFoundException: com.db.bankingapi.models.FullName
 2025-07-30T12:04:20,575 [Thread-177] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-30T12:04:20,578 [Thread-177] INFO  HikariDataSource - HikariPool-12 - Shutdown initiated...
 2025-07-30T12:04:20,588 [Thread-177] INFO  HikariDataSource - HikariPool-12 - Shutdown completed.
+2025-07-30T12:04:21,945 [restartedMain] INFO  BankingapiApplication - Starting BankingapiApplication using Java 21.0.5 with PID 24608 (E:\dbtrainingws\bankingapi\bankingapi\target\classes started by param in E:\dbtrainingws\bankingapi\bankingapi)
+2025-07-30T12:04:21,947 [restartedMain] INFO  BankingapiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-30T12:04:22,806 [restartedMain] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-30T12:04:22,838 [restartedMain] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
+2025-07-30T12:04:23,021 [restartedMain] INFO  TomcatWebServer - Tomcat initialized with port 7074 (http)
+2025-07-30T12:04:23,022 [restartedMain] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7074"]
+2025-07-30T12:04:23,022 [restartedMain] INFO  StandardService - Starting service [Tomcat]
+2025-07-30T12:04:23,022 [restartedMain] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-07-30T12:04:23,041 [restartedMain] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-30T12:04:23,041 [restartedMain] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1092 ms
+2025-07-30T12:04:23,561 [restartedMain] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-30T12:04:23,566 [restartedMain] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-30T12:04:23,582 [restartedMain] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-30T12:04:23,584 [restartedMain] INFO  HikariDataSource - HikariPool-13 - Starting...
+2025-07-30T12:04:23,604 [restartedMain] INFO  HikariPool - HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bf5bce3
+2025-07-30T12:04:23,604 [restartedMain] INFO  HikariDataSource - HikariPool-13 - Start completed.
+2025-07-30T12:04:23,782 [restartedMain] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-30T12:04:23,856 [restartedMain] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-30T12:04:24,986 [restartedMain] WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-30T12:04:25,842 [restartedMain] WARN  ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-07-30T12:04:27,521 [restartedMain] INFO  OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-30T12:04:27,543 [restartedMain] INFO  EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-07-30T12:04:27,654 [restartedMain] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-7074"]
+2025-07-30T12:04:27,661 [restartedMain] INFO  TomcatWebServer - Tomcat started on port 7074 (http) with context path '/'
+2025-07-30T12:04:27,703 [restartedMain] INFO  BankingapiApplication - Started BankingapiApplication in 5.897 seconds (process running for 4776.65)
+2025-07-30T12:04:27,711 [restartedMain] INFO  ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
