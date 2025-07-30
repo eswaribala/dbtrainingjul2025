@@ -4,13 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//DTO
 @Data
-
+@AllArgsConstructor
 @NoArgsConstructor
-public class Setting {
-    private String title;
+public class JwtResponse {
 
-    public Setting(String title) {
-        this.title = title;
-    }
+	private String token;
+
+
+	public String getToken() {
+		return token;
+	}
+
 }
