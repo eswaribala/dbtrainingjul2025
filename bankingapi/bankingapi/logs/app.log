@@ -2493,3 +2493,70 @@ Caused by: java.lang.ClassNotFoundException: com.db.bankingapi.models.FullName
 2025-07-30T12:09:53,534 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-30T12:09:53,560 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-30T12:09:53,627 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-30T12:10:33,129 [restartedMain] INFO  BankingapiApplication - Starting BankingapiApplication using Java 21.0.5 with PID 37148 (E:\dbtrainingws\bankingapi\bankingapi\target\classes started by param in E:\dbtrainingws\bankingapi\bankingapi)
+2025-07-30T12:10:33,138 [restartedMain] INFO  BankingapiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-30T12:10:33,190 [restartedMain] INFO  DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-30T12:10:33,191 [restartedMain] INFO  DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-30T12:10:34,331 [restartedMain] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-30T12:10:34,460 [restartedMain] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 122 ms. Found 3 JPA repository interfaces.
+2025-07-30T12:10:35,389 [restartedMain] INFO  TomcatWebServer - Tomcat initialized with port 7074 (http)
+2025-07-30T12:10:35,401 [restartedMain] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7074"]
+2025-07-30T12:10:35,403 [restartedMain] INFO  StandardService - Starting service [Tomcat]
+2025-07-30T12:10:35,404 [restartedMain] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-07-30T12:10:35,471 [restartedMain] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-30T12:10:35,471 [restartedMain] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2280 ms
+2025-07-30T12:10:36,148 [restartedMain] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-30T12:10:36,190 [restartedMain] INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-07-30T12:10:36,224 [restartedMain] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-30T12:10:36,464 [restartedMain] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-30T12:10:36,498 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-07-30T12:10:36,775 [restartedMain] INFO  HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5edac8ef
+2025-07-30T12:10:36,775 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-07-30T12:10:37,762 [restartedMain] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-30T12:10:37,870 [restartedMain] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-30T12:10:38,434 [restartedMain] WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-30T12:10:38,976 [restartedMain] WARN  ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-07-30T12:10:39,794 [restartedMain] INFO  OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-30T12:10:39,804 [restartedMain] INFO  EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-07-30T12:10:40,009 [restartedMain] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-7074"]
+2025-07-30T12:10:40,023 [restartedMain] INFO  TomcatWebServer - Tomcat started on port 7074 (http) with context path '/'
+2025-07-30T12:10:40,038 [restartedMain] INFO  BankingapiApplication - Started BankingapiApplication in 7.221 seconds (process running for 8.504)
+2025-07-30T12:10:40,402 [RMI TCP Connection(2)-192.168.0.108] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-30T12:10:40,402 [RMI TCP Connection(2)-192.168.0.108] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-30T12:10:40,405 [RMI TCP Connection(2)-192.168.0.108] INFO  DispatcherServlet - Completed initialization in 2 ms
+2025-07-30T12:10:50,504 [http-nio-7074-exec-3] INFO  AbstractOpenApiResource - Init duration for springdoc-openapi is: 1051 ms
+2025-07-30T12:46:50,393 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-30T12:46:50,404 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-30T12:46:50,431 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-30T12:50:10,224 [restartedMain] INFO  BankingapiApplication - Starting BankingapiApplication using Java 21.0.5 with PID 26444 (E:\dbtrainingws\bankingapi\bankingapi\target\classes started by param in E:\dbtrainingws\bankingapi\bankingapi)
+2025-07-30T12:50:10,232 [restartedMain] INFO  BankingapiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-30T12:50:10,283 [restartedMain] INFO  DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-30T12:50:10,284 [restartedMain] INFO  DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-30T12:50:11,389 [restartedMain] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-30T12:50:11,517 [restartedMain] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 122 ms. Found 3 JPA repository interfaces.
+2025-07-30T12:50:12,289 [restartedMain] INFO  TomcatWebServer - Tomcat initialized with port 7074 (http)
+2025-07-30T12:50:12,300 [restartedMain] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7074"]
+2025-07-30T12:50:12,304 [restartedMain] INFO  StandardService - Starting service [Tomcat]
+2025-07-30T12:50:12,304 [restartedMain] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-07-30T12:50:12,350 [restartedMain] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-30T12:50:12,350 [restartedMain] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2066 ms
+2025-07-30T12:50:12,956 [restartedMain] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-30T12:50:13,003 [restartedMain] INFO  Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-07-30T12:50:13,027 [restartedMain] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-30T12:50:13,286 [restartedMain] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-30T12:50:13,319 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-07-30T12:50:13,623 [restartedMain] INFO  HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18fa2fe
+2025-07-30T12:50:13,624 [restartedMain] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-07-30T12:50:14,634 [restartedMain] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-30T12:50:14,718 [restartedMain] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-30T12:50:15,339 [restartedMain] WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-30T12:50:15,872 [restartedMain] WARN  ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-07-30T12:50:16,705 [restartedMain] INFO  OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-30T12:50:16,715 [restartedMain] INFO  EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-07-30T12:50:17,150 [restartedMain] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-7074"]
+2025-07-30T12:50:17,163 [restartedMain] INFO  TomcatWebServer - Tomcat started on port 7074 (http) with context path '/'
+2025-07-30T12:50:17,181 [restartedMain] INFO  BankingapiApplication - Started BankingapiApplication in 7.283 seconds (process running for 9.133)
+2025-07-30T12:50:17,891 [RMI TCP Connection(4)-192.168.0.108] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-30T12:50:17,891 [RMI TCP Connection(4)-192.168.0.108] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-30T12:50:17,898 [RMI TCP Connection(4)-192.168.0.108] INFO  DispatcherServlet - Completed initialization in 5 ms
+2025-07-30T12:50:24,574 [http-nio-7074-exec-4] INFO  AbstractOpenApiResource - Init duration for springdoc-openapi is: 984 ms
