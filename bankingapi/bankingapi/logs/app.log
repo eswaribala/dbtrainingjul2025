@@ -2560,3 +2560,5 @@ Caused by: java.lang.ClassNotFoundException: com.db.bankingapi.models.FullName
 2025-07-30T12:50:17,891 [RMI TCP Connection(4)-192.168.0.108] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2025-07-30T12:50:17,898 [RMI TCP Connection(4)-192.168.0.108] INFO  DispatcherServlet - Completed initialization in 5 ms
 2025-07-30T12:50:24,574 [http-nio-7074-exec-4] INFO  AbstractOpenApiResource - Init duration for springdoc-openapi is: 984 ms
+2025-07-30T14:04:12,392 [File Watcher] INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-07-30T14:04:12,401 [Thread-6] INFO  Http11NioProtocol - Stopping ProtocolHandler ["http-nio-7074"]

@@ -63,7 +63,27 @@ public class IndividualController {
         }
     }
 
+    @PutMapping("/v1.0")
+    public ResponseEntity<GenericResponse> updateIndividualByEmail(@RequestParam("email") String email,@RequestParam("accountNo") long accountNo){
+        Individual response =individualService.updateIndividualEmail(accountNo,email);
+        if(response!=null){
+            return ResponseEntity.status(HttpStatus.OK).body(new GenericResponse<Individual>(response));
 
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new GenericResponse("Individual object not found"));
+        }
+    }
+
+    @DeleteMapping("/v1.0/{accountNo}")
+    public ResponseEntity<GenericResponse> deleteIndividualById(@PathVariable("accountNo") long accountNo){
+
+        if(individualService.deleteIndividualById(accountNo)){
+            return ResponseEntity.status(HttpStatus.OK).body(new GenericResponse<Individual>("Account Deletion Successfully"));
+
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new GenericResponse("Individual object not found and not deleted"));
+        }
+    }
 
 
 }
