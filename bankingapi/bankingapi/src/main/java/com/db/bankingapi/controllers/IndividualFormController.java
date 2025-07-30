@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("userforms")
+
 public class IndividualFormController {
 
-    @GetMapping("/v1.0")
+    @GetMapping("forms/v1.0")
     public String loadIndexPage(Model model) {
         Setting setting=new Setting();
         setting.setTitle("Individual Form");
