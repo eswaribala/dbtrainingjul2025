@@ -54,3 +54,23 @@ body{
     width: 200px;
     height: auto;
 }   
+
+p:first-letter{
+    font-size: 32px;
+    color: navy;
+    line-height: 1.5;
+
+}
+p:first-line{
+    font-weight: bold;
+    color: goldenrod;
+    font-family: 'Lucidatypewriter', monospace;
+}
+p{
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 10px;
+    text-align: justify;
+    
+}
