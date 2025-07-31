@@ -1,16 +1,13 @@
 
 #scholar {
-  animation: ballanimation 2s infinite;
-  animation-duration: 8s;
-  animation-iteration-count: infinite;
-  animation-direction:normal;
-  animation-delay: 3s;
-  animation-timing-function: linear;
+  transform-style: preserve-3d;
+  transition: all 5.0s ease;
   margin-left: 40%;
   width: 400px;
   height: 400px;  
 }
 #scholar:hover {
-  transform: scale(1.5);
-  transition: all 0.5s ease-in-out;
+  transform: scale(1.5) rotateZ(-45deg) rotateX(-45deg);
+ 
+  transition: all 5.0s ease-in-out;
 }
