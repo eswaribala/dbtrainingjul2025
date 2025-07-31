@@ -121,11 +121,11 @@
 			<artifactId>nashorn-core</artifactId>
 			<version>15.4</version>
 		</dependency>
-		<dependency>
+	<!--	<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
 			<version>3.3.4</version>
-		</dependency>
+		</dependency>-->
 		<!-- Micrometer Tracing (Brave bridge for Zipkin) -->
 		<dependency>
 			<groupId>io.micrometer</groupId>

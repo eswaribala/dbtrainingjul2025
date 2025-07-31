@@ -1,7 +1,7 @@
 package com.db.bankingapi;
 
 import com.db.bankingapi.models.FullName;
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
+//import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import org.springframework.web.client.RestClient;
 import java.util.Arrays;
 
 @SpringBootApplication
-@EnableAdminServer
+//@EnableAdminServer
 public class BankingapiApplication implements CommandLineRunner {
 
 	//@Autowired

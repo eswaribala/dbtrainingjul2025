@@ -49,7 +49,7 @@ public class ApiSecurityConfig  {
 	
 	@Bean
 	 public WebSecurityCustomizer ignoringCustomizer() {
-	        return (web) -> web.ignoring().requestMatchers( "/users/v1.0/signup","/users/v1.0/signin","/v3/api-docs/**",
+	        return (web) -> web.ignoring().requestMatchers( "/","/**","/users/v1.0/signup","/users/v1.0/signin","/v3/api-docs/**",
 					"/swagger-ui/**",
 					"/swagger-ui.html","/forms/v1.0","/forms/v1.0/**","/images/**","/images/favicon.ico","/images/favicon.ico/**");
 	 }
@@ -57,7 +57,7 @@ public class ApiSecurityConfig  {
 	 @Bean
 	  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		 http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(authz -> authz
-				 .requestMatchers("/v3/api-docs/**",
+				 .requestMatchers("/","/**","/v3/api-docs/**",
 						 "/swagger-ui/**",
 						 "/swagger-ui.html", "/users/v1.0/signup","/users/v1.0/signin","/forms/v1.0","/forms/v1.0/**","/images/**","/images/favicon.ico","/images/favicon.ico/**")
 
