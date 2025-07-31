@@ -3,8 +3,13 @@
   transform-style: preserve-3d;
   transition: all 5.0s ease;
   margin-left: 40%;
+  margin-top: 5%;
+  padding: 5%;
   width: 400px;
-  height: 400px;  
+  height: auto;  
+  border: 12px solid blue;
+  border-radius: 40px;
+  box-shadow: 0px 0px 20px red;
 }
 #scholar:hover {
   transform: scale(1.5) rotateZ(-45deg) rotateX(-45deg);
