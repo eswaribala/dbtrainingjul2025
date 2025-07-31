@@ -72,5 +72,8 @@ p{
     line-height: 1.6;
     margin-top: 10px;
     text-align: justify;
-    
+   column-count: 2;
+    column-gap: 20px;
+    column-rule: 1px dotted red;
+
 }
