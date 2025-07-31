@@ -51,7 +51,7 @@ public class ApiSecurityConfig  {
 	 public WebSecurityCustomizer ignoringCustomizer() {
 	        return (web) -> web.ignoring().requestMatchers( "/users/v1.0/signup","/users/v1.0/signin","/v3/api-docs/**",
 					"/swagger-ui/**",
-					"/swagger-ui.html");
+					"/swagger-ui.html","/forms/v1.0","/forms/v1.0/**","/images/**","/images/favicon.ico","/images/favicon.ico/**");
 	 }
 
 	 @Bean
@@ -59,7 +59,7 @@ public class ApiSecurityConfig  {
 		 http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(authz -> authz
 				 .requestMatchers("/v3/api-docs/**",
 						 "/swagger-ui/**",
-						 "/swagger-ui.html", "/users/v1.0/signup","/users/v1.0/signin")
+						 "/swagger-ui.html", "/users/v1.0/signup","/users/v1.0/signin","/forms/v1.0","/forms/v1.0/**","/images/**","/images/favicon.ico","/images/favicon.ico/**")
 
 				 
 		 .permitAll().anyRequest()
