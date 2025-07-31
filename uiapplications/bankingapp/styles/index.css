@@ -38,6 +38,11 @@ body{
     text-decoration: none;
     color:white;
 }
+#index-nav ul li a:visited{
+    text-decoration: none;
+    color:purple;
+}
+
 #logo img{
     height: 100px;
     width: 100px;
