@@ -20,8 +20,9 @@
     opacity: 1.0;
   }
   40% {
-    transform: translate(300px,70px);
+    transform: skew(40deg,20deg);
     transition: all 0.5s ease-in-out;
+    opacity: 1.0;
   }
   50% {
     transform: translate(350px,50px);
