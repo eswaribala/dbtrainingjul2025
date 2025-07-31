@@ -15,10 +15,19 @@ body{
     width: 100% !important;
     border: 2px solid #4CAF50;
 }
+#index-nav h1{
+    color: navy;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
 #index-nav ul li{
     list-style: none;
     display: inline;
     margin-right: 20px;
+     color: navy;
+    font-size: 20px;
+    font-weight: bold;
 }
 #logo img{
     height: 100px;
@@ -34,3 +43,14 @@ body{
     width: 100%;
 
 }
+#index-section #article1,#index-section #article2,#index-section #article3,#index-section #article4{
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 25%;
+}
+
+#index-section #article1 img,#index-section #article2 img,#index-section #article3 img,#index-section #article4 img{
+    width: 200px;
+    height: auto;
+}   
