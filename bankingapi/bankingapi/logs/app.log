@@ -16766,3 +16766,6 @@ com.db.bankingapi.exceptions.JwtTokenMissingException: No JWT token found in the
 2025-07-31T09:35:39,646 [http-nio-7074-exec-7] WARN  ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
 2025-07-31T09:36:18,270 [http-nio-7074-exec-3] WARN  ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
 2025-07-31T09:36:27,543 [http-nio-7074-exec-10] WARN  ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-07-31T10:06:41,981 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-31T10:06:42,072 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-31T10:06:42,121 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
