@@ -2,19 +2,22 @@
   0% {
     transform: translate(100px,0px);
     transition: all 0.8s ease-in-out;
+    opacity: 0.8;
   }
   10% {
     transform: translate(150px,70px);
     transition: all 0.5s ease-in-out;
+    opacity: 0.0;
   }
   20% {
     transform: translate(200px,-70px);
     transition: all 0.5s ease-in-out;
+    opacity: 0.2;
   }
   30% {
-    transform: translate(250px,50px);
+    transform: scale(5) translate(250px,0px);
     transition: all 0.8s ease-in-out;
-    opacity: 0.8;
+    opacity: 1.0;
   }
   40% {
     transform: translate(300px,70px);
