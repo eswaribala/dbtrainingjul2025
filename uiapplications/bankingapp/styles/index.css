@@ -11,7 +11,7 @@ body{
     align-items: center;
     background-color: #4CAF50;
     padding: 10px 20px;
-    margin-left: 10%;
+    margin-left: 12%;
     width: 100% !important;
     border: 2px solid #4CAF50;
 }
@@ -76,4 +76,12 @@ p{
     column-gap: 20px;
     column-rule: 1px dotted red;
 
+}
+#dbCarousel{
+    display: flex;
+    border: 2px solid #4CAF50;
+ 
+    margin-left: 12%;
+    margin-top: 2%;
+    width: 100%;
 }
