@@ -22,7 +22,12 @@ window.addEventListener('load', function() {
 
             let map = new google.maps.Map(mapcanvas, {
                 zoom: 15,
-                center: myLatLng
+                center: myLatLng,
+                mapTypeControl: false,  
+
+                navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},  
+
+                mapTypeId: google.maps.MapTypeId.SATELLITE 
             });
 
             let marker = new google.maps.Marker({
