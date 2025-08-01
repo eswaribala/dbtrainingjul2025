@@ -22,10 +22,10 @@ function CurrentAccount(id, runningTotal, dateOfOpening, overdraftLimit) {
 }
 //inheritance
 SavingsAccount.prototype = Object.create(Account.prototype);
-SavingsAccount.prototype.constructor = SavingsAccount;
+//SavingsAccount.prototype.constructor = SavingsAccount;
 
 CurrentAccount.prototype = Object.create(Account.prototype);
-CurrentAccount.prototype.constructor = CurrentAccount;
+//CurrentAccount.prototype.constructor = CurrentAccount;
 
 //create instances
 let savingsAccount = new SavingsAccount(
