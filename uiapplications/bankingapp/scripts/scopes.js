@@ -32,3 +32,18 @@ console.log(faker.number.int({ min: 1, max: 1000 }) + ' is the random number gen
 }
  //console.log(`Block Scoped Variable: ${blockScopedVariable}`);
      console.log(`IP Address: ${ipAddress}`);
+
+
+//lexical scope
+function outerFunction() {
+    var outerVariable = 'I am from the outer function';
+    
+    function innerFunction() {
+        console.log(outerVariable); // Accessing outerVariable from the inner function
+    }
+    
+    
+    innerFunction(); // Call the inner function
+}
+outerFunction(); // Call the outer function to see the output     
+//console.log(`Outer Variable: ${outerVariable}`); // This will throw an error because outerVariable is not accessible here
