@@ -1,0 +1,29 @@
+#investors {
+    margin-left: 25%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width:80%;
+}
+
+#investors table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: navy;
+    color: white;
+}
+
+#investors th, #investors td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#investors th {
+    background-color:yellow;
+    text-align: left;
+}
+
+#investors tr:nth-child(even) {
+    background-color: lightblue;
+    color: navy;
+}   
