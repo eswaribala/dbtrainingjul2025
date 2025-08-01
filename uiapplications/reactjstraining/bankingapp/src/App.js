@@ -1,5 +1,5 @@
 import Logo from './components/molecules/Logo'
-import Timer from './components/atoms/Timer'
+
 import './App.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <Logo/>
-        <Timer/>
+       
       </header>
     </div>
   );

@@ -7,26 +7,25 @@ class Timer extends Component{
             currentTime:new Date()
         };
     }
+    timerEvent=()=>{
+            this.setState({
+                currentTime:new Date()
+            })
+        }
+
 
     componentDidMount() {
         console.log("Component Mounted...");
-        this.interval = setInterval(() => {
-            this.setState(prevState => ({
-                currentTime:new Date()
-            }));
-        }, 1000);
+         setInterval(this.timerEvent,1000);
+
     }
 
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
+ 
 
     render() {
         return (
-            <div>
-                <h1>{this.state.currentTime.toLocaleTimeString()}</h1>
-                
-            </div>
+             <h4>{this.state.currentTime.toLocaleTimeString()}</h4>
+
         );
     }
 }
