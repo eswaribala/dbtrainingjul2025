@@ -23,10 +23,12 @@ console.log(faker.number.int({ min: 1, max: 1000 }) + ' is the random number gen
 //local scope
 //console.log(`Password: ${password}`);
 //block scope
-
 {
+    var ipAddress = faker.internet.ip();
+    console.log(`IP Address: ${ipAddress}`);
     let blockScopedVariable = faker.lorem.sentence();
     console.log(`Block Scoped Variable: ${blockScopedVariable}`);
  
 }
- console.log(`Block Scoped Variable: ${blockScopedVariable}`);
+ //console.log(`Block Scoped Variable: ${blockScopedVariable}`);
+     console.log(`IP Address: ${ipAddress}`);
