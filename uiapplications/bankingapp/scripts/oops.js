@@ -19,6 +19,12 @@ function Customer(id,name,dob) {
     };
 }
 
+//method
+Customer.prototype.updateName = function(newName) {
+    this.name = newName;
+};
+
+
 //create the object
 var customer1 = new Customer(faker.number.int({ min: 1, max: 1000 }),
                              faker.person.fullName(),
@@ -27,3 +33,8 @@ var customer1 = new Customer(faker.number.int({ min: 1, max: 1000 }),
 console.log(customer1.getId());   // Output: 1
 console.log(customer1.getName());   // Output: John Doe
 console.log(customer1.getDob());   // Output: 1990-01-01
+
+//call the method
+console.log("Calling Update Method.....");   // Output: John Doe
+customer1.updateName(faker.person.fullName());
+console.log(customer1.getName());   // Output: Jane Smith (or another random name)
