@@ -1,6 +1,5 @@
 #responsibility-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+   width: 50%;
+   margin: 35%;
+   margin-top: 2%;
 }
