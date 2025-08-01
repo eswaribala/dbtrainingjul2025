@@ -47,3 +47,11 @@ function outerFunction() {
 }
 //outerFunction(); // Call the outer function to see the output     
 //console.log(`Outer Variable: ${outerVariable}`); // This will throw an error because outerVariable is not accessible here
+
+//getOTP(); //function expression
+//function expression
+const getOTP= function() {
+    console.log("OTP"+ faker.number.int({ min: 100000, max: 999999 }));
+}
+ // Call the function expression to get the OTP
+getOTP(); // Call the function expression to get the OTP
