@@ -5,9 +5,10 @@ import './Logo.css'
 
 
 const Logo=()=>(
-    <div className='Logo'>
+    <div className='logo'>
         <LogoText />
         <LogoImage/>
+       
     </div>
 )
 
