@@ -22,3 +22,11 @@ showData();
 console.log(faker.number.int({ min: 1, max: 1000 }) + ' is the random number generated');
 //local scope
 //console.log(`Password: ${password}`);
+//block scope
+
+{
+    let blockScopedVariable = faker.lorem.sentence();
+    console.log(`Block Scoped Variable: ${blockScopedVariable}`);
+ 
+}
+ console.log(`Block Scoped Variable: ${blockScopedVariable}`);
