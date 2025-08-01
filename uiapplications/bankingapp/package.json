@@ -3,6 +3,7 @@
     "bootstrap": "^5.3.7"
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.9.0"
+    "@faker-js/faker": "^9.9.0",
+    "bootstrap-icons": "^1.13.1"
   }
 }
