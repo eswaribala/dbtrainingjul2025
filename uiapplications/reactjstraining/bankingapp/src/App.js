@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+import Logo from './components/molecules/Logo'
 import './App.css';
 
 function App() {
   return (
     <div >
       <header >
-        <h1>Deutsche</h1>
+        <Logo/>
       </header>
     </div>
   );

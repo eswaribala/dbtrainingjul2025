@@ -1,0 +1,7 @@
+.multicolortext {
+  background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  background-clip: text;
+  color: transparent;
+  font-family: "Lucida Calligraphy";
+  padding: 2%;
+}
