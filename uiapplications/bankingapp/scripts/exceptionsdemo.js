@@ -30,7 +30,8 @@ const accountValue = Object.values(AccountType);
 const randomAccountType = accountValue[Math.floor(Math.random() * accountValue.length)];
 
 let account=new Account(
-    faker.number.int({ min: 1000, max: 10000 }),
+    faker.string.uuid(),  // Using faker to generate a UUID
+    //faker.number.int({ min: 1000, max: 10000 }),
     faker.number.int({ min: 1000, max: 10000 }),
     faker.number.float({ min: 0.01, max: 0.1,
     precision: 0.01,
