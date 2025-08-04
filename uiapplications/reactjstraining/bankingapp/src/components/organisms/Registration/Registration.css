@@ -1,0 +1,8 @@
+.registration{
+    margin-right: 5%;
+    padding: 5%;
+    width:40%;
+}
+.MuiFormHelperText-root.Mui-error {
+    color: red;
+}
