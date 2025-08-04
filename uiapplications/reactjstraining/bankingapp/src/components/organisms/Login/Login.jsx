@@ -16,6 +16,10 @@ import './Login.css';
      },
      onSubmit: values => {
        alert(JSON.stringify(values, null, 2));
+       formik.setValues({
+         userName: '',
+         password: '',
+       });
      },
    });
    return (
@@ -38,7 +42,7 @@ import './Login.css';
          label="Password"
          variant="outlined"
          onChange={formik.handleChange}
-         value={formik.values.userName}
+         value={formik.values.password}
          fullWidth
          margin="normal">
         </TextField>
