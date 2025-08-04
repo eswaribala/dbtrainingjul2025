@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, TextField } from '@mui/material';
-
+import axios from 'axios';
 import { useFormik } from 'formik';
 import './Login.css';
 import * as Yup from 'yup';
@@ -27,6 +27,16 @@ const validationSchema = Yup.object({
       validationSchema: validationSchema,
      onSubmit: values => {
        alert(JSON.stringify(values, null, 2));
+       axios.post('https://postman-echo.com/post', values)
+       .then(response => {
+         console.log(response.data);
+         // Handle successful login here, e.g., redirect or show a success message
+       })
+       .catch(error => {
+         console.error('Login error:', error);
+         // Handle login error here, e.g., show an error message
+       });
+
        formik.setValues({
          userName: '',
          password: '',
@@ -44,8 +54,8 @@ const validationSchema = Yup.object({
          variant="outlined"
          onChange={formik.handleChange}
          value={formik.values.userName}
-         onError={formik.errors.userName && Boolean(formik.errors.userName)}
-         helperText={formik.errors.userName}
+         onError={formik.touched.userName && formik.errors.userName && Boolean(formik.errors.userName)}
+         helperText={formik.touched.userName &&formik.errors.userName}
          fullWidth
          margin="normal"
        />
@@ -56,8 +66,8 @@ const validationSchema = Yup.object({
          variant="outlined"
          onChange={formik.handleChange}
          value={formik.values.password}
-         onError={formik.errors.password && Boolean(formik.errors.password)}
-         helperText={formik.errors.password}
+         onError={formik.touched.password && formik.errors.password && Boolean(formik.errors.password)}
+         helperText={formik.touched.password && formik.errors.password}
          fullWidth
          margin="normal"
        />
