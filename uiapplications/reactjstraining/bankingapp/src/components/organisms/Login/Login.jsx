@@ -1,8 +1,18 @@
 import React from 'react';
 import { Button, TextField } from '@mui/material';
 
- import { useFormik } from 'formik';
+import { useFormik } from 'formik';
 import './Login.css';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+  userName: Yup.string()
+    .required('User Name is required'),
+  password: Yup.string()
+    .required('Password is required'),
+})
+
+
  
  const Login = () => {
    // Note that we have to initialize ALL of fields with values. These
@@ -14,6 +24,7 @@ import './Login.css';
        userName: '',
        password: '',
      },
+      validationSchema: validationSchema,
      onSubmit: values => {
        alert(JSON.stringify(values, null, 2));
        formik.setValues({
@@ -33,6 +44,8 @@ import './Login.css';
          variant="outlined"
          onChange={formik.handleChange}
          value={formik.values.userName}
+         onError={formik.errors.userName && Boolean(formik.errors.userName)}
+         helperText={formik.errors.userName}
          fullWidth
          margin="normal"
        />
@@ -43,9 +56,12 @@ import './Login.css';
          variant="outlined"
          onChange={formik.handleChange}
          value={formik.values.password}
+         onError={formik.errors.password && Boolean(formik.errors.password)}
+         helperText={formik.errors.password}
          fullWidth
-         margin="normal">
-        </TextField>
+         margin="normal"
+       />
+
       <Button type="submit" variant="contained" color="primary">
         Submit
       </Button>
