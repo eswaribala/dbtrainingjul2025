@@ -1,7 +1,7 @@
 
-import React, { useEffect, useMemo} from 'react';
+import React, { useCallback, useEffect, useMemo} from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { Box, Tab } from '@mui/material';
+import { Box, Tab, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -13,6 +13,7 @@ const Menu = () => {
   const [value, setValue] = React.useState('1');
   const [users, setUsers] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [selectedUser, setSelectedUser] = React.useState(null);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -38,6 +39,13 @@ const Menu = () => {
     console.log('Sorting users:', users);
     return [...users].sort((a, b) => a.name.localeCompare(b.name));
   }, [users]);  
+
+  const handleRowClick = useCallback((user) => {
+    console.log('Row clicked:', user);
+    setSelectedUser(user);
+    // You can perform any action here, like navigating to a user details page
+
+  }, []);
 
   return (
 <TabContext value={value}>
@@ -74,6 +82,9 @@ const Menu = () => {
           {sortUsers.map((user) => (
             <TableRow
               key={user.id}
+              hover
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleRowClick(user)}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
             
@@ -85,9 +96,29 @@ const Menu = () => {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
-    )}
+    </TableContainer> 
 
+
+
+    )}
+    {
+        selectedUser && (
+            <Box>
+            <h3>Selected User Details:</h3>
+            <Typography variant="body1">
+              <strong>Name:</strong> {selectedUser.name} <br />
+             
+            </Typography>
+            <Typography variant="body1">
+              <strong>Email:</strong> {selectedUser.email} <br />
+
+            </Typography>
+            <Typography variant="body1">
+              <strong>Phone:</strong> {selectedUser.phone} <br />
+            </Typography>
+            </Box>
+        )   
+     }
 
   </TabPanel>
   <TabPanel value="2">Products</TabPanel>
