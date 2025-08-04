@@ -33,7 +33,7 @@ const validationSchema = Yup.object({
      },
       validationSchema: validationSchema,
      onSubmit: values => {
-       alert(JSON.stringify(values, null, 2));
+     //  alert(JSON.stringify(values, null, 2));
        axios.post('https://postman-echo.com/post', values)
        .then(response => {
          console.log(response.data);
