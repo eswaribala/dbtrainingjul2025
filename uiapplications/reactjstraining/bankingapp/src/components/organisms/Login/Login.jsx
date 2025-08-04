@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import './Login.css';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object({
   userName: Yup.string()
@@ -14,11 +15,12 @@ const validationSchema = Yup.object({
 
 
  
- const Login = ({registerStatus}) => {
+ const Login = ({registerStatus,loginStatus}) => {
    // Note that we have to initialize ALL of fields with values. These
    // could come from props, but since we don’t want to prefill this form,
    // we just use an empty string. If we don’t do this, React will yell
    // at us.
+    const navigate = useNavigate();
 
    function handleRegister() {
       registerStatus(true);
@@ -35,7 +37,9 @@ const validationSchema = Yup.object({
        axios.post('https://postman-echo.com/post', values)
        .then(response => {
          console.log(response.data);
+         loginStatus(true); // Update login status
          // Handle successful login here, e.g., redirect or show a success message
+         navigate('/dashboard');
        })
        .catch(error => {
          console.error('Login error:', error);
