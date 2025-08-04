@@ -3,6 +3,49 @@ import {useFormik} from 'formik';
 import { Button, TextField } from '@mui/material';
 import styles from './Registration.css';
 
+import * as Yup from 'yup';
+const validationSchema = Yup.object({
+  firstName: Yup.string()
+    .required('First Name is required')
+    .min(2, 'First Name must be at least 2 characters')
+    .max(50, 'First Name must not exceed 50 characters')
+    .matches(/^[a-zA-Z]+$/, 'First Name must contain only letters'),
+  lastName: Yup.string()
+    .required('Last Name is required')
+    .min(2, 'Last Name must be at least 2 characters')
+    .max(50, 'Last Name must not exceed 50 characters')
+    .matches(/^[a-zA-Z]+$/, 'Last Name must contain only letters'),
+  email: Yup.string()
+    .email('Invalid email format')
+    .required('Email is required')
+    .max(100, 'Email must not exceed 100 characters')
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Email must be a valid email address'),
+  dob: Yup.date()
+    .required('Date of Birth is required')
+    .nullable()
+    .max(new Date(), 'Date of Birth cannot be in the future') 
+    .test('age', 'You must be at least 18 years old', value => {
+      if (!value) return true; // Skip validation if no value
+      const today = new Date();
+      const age = today.getFullYear() - value.getFullYear();
+      const monthDiff = today.getMonth() - value.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < value.getDate())) {
+        return age >= 18;
+      }
+      return age >= 18;
+    }),
+  phone: Yup.string()
+    .required('Phone Number is required')
+    .matches(/^\d{10}$/, 'Phone Number must be 10 digits'),
+  userName: Yup.string()
+    .required('User Name is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password must be at least 6 characters')
+    .max(10, 'Password must not exceed 10 characters')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/, 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character')
+});
+
 const Registration = () => {
    // Note that we have to initialize ALL of fields with values. These
    // could come from props, but since we don’t want to prefill this form,
@@ -18,6 +61,7 @@ const Registration = () => {
        userName: '',
        password: '',
      },
+      validationSchema: validationSchema,
      onSubmit: values => {
        alert(JSON.stringify(values, null, 2));
      },
