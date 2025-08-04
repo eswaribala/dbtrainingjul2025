@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import {useFormik} from 'formik';
 import { Button, TextField } from '@mui/material';
 import styles from './Registration.css';
+  import { useNavigate } from 'react-router-dom';
 
 import * as Yup from 'yup';
 const validationSchema = Yup.object({
@@ -46,11 +47,12 @@ const validationSchema = Yup.object({
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/, 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character')
 });
 
-const Registration = () => {
+const Registration = ({registerStatus}) => {
    // Note that we have to initialize ALL of fields with values. These
    // could come from props, but since we don’t want to prefill this form,
    // we just use an empty string. If we don’t do this, React will yell
    // at us.
+   const navigate = useNavigate();
    const formik = useFormik({
      initialValues: {
        firstName: '',
@@ -64,6 +66,9 @@ const Registration = () => {
       validationSchema: validationSchema,
      onSubmit: values => {
        alert(JSON.stringify(values, null, 2));
+       registerStatus(false); // Switch to login after registration
+       navigate('/login'); // Redirect to login after registration
+       
      },
    });
    return (

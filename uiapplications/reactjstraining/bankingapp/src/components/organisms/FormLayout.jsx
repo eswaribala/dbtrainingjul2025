@@ -14,7 +14,7 @@ const FormLayout=()=>{
     return(
     <div className='formLayout'>
         <Banner />
-        {(!isRegister) ? <Login registerStatus={handleChange} /> : <Register />}
+        {(!isRegister) ? <Login registerStatus={handleChange} /> : <Register registerStatus={handleChange}/>}
     </div>
     )
 }
