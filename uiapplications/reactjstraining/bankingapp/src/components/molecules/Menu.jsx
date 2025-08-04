@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import OrdersList from './OrderList';
 import withOrders from './Orders'; // Assuming withOrders is in the same directory
+import ProductList from './ProductList'; // Assuming ProductList is in the same directory
 const Menu = () => {
   const [value, setValue] = React.useState('1');
   const [users, setUsers] = React.useState([]);
@@ -124,7 +125,11 @@ const Menu = () => {
      }
 
   </TabPanel>
-  <TabPanel value="2">Products</TabPanel>
+  <TabPanel value="2">
+    <Typography variant="h6">Product List</Typography>
+    <ProductList /> 
+
+  </TabPanel>
   <TabPanel value="3">
     <EnhancedOrderList />
   </TabPanel>
