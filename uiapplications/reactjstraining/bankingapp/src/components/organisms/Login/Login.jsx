@@ -47,11 +47,7 @@ const validationSchema = Yup.object({
          // Handle successful login here, e.g., redirect or show a success message
          navigate('/dashboard');
        })
-       .catch(error => {
-         console.error('Login error:', error);
-         loginStatus(false); // Update login status
-         // Handle login error here, e.g., show an error message
-       });
+      
 
        formik.setValues({
          userName: '',
