@@ -9,11 +9,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import OrdersList from './OrderList';
+import withOrders from './Orders'; // Assuming withOrders is in the same directory
 const Menu = () => {
   const [value, setValue] = React.useState('1');
   const [users, setUsers] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [selectedUser, setSelectedUser] = React.useState(null);
+      const EnhancedOrderList=withOrders(OrdersList);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -122,7 +125,9 @@ const Menu = () => {
 
   </TabPanel>
   <TabPanel value="2">Products</TabPanel>
-  <TabPanel value="3">Orders</TabPanel>
+  <TabPanel value="3">
+    <EnhancedOrderList />
+  </TabPanel>
   </Box>
 </TabContext>
   );
