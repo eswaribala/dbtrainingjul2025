@@ -43,6 +43,13 @@ const validationSchema = Yup.object({
        })
        .catch(error => {
          console.error('Login error:', error);
+         loginStatus(true); // Update login status
+         // Handle successful login here, e.g., redirect or show a success message
+         navigate('/dashboard');
+       })
+       .catch(error => {
+         console.error('Login error:', error);
+         loginStatus(false); // Update login status
          // Handle login error here, e.g., show an error message
        });
 
