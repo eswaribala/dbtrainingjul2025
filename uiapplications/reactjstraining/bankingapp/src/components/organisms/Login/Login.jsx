@@ -1,7 +1,8 @@
 import React from 'react';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
  import { useFormik } from 'formik';
+import './Login.css';
  
  const Login = () => {
    // Note that we have to initialize ALL of fields with values. These
@@ -18,7 +19,7 @@ import { TextField } from '@mui/material';
      },
    });
    return (
-     <form onSubmit={formik.handleSubmit}>
+     <form onSubmit={formik.handleSubmit} className='login'>
        
 
        <TextField
@@ -41,7 +42,9 @@ import { TextField } from '@mui/material';
          fullWidth
          margin="normal">
         </TextField>
-       <button type="submit">Submit</button>
+      <Button type="submit" variant="contained" color="primary">
+        Submit
+      </Button>
      </form>
    );
  };
