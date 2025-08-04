@@ -1,4 +1,26 @@
-import { Component } from "react";
+import { useState,useEffect } from "react";
+
+
+function Timer(){
+    //react hook -- state hook
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+
+        return () => {
+            clearInterval(timerId);
+        };
+    }, []);
+
+    return (
+        <h4>{currentTime.toLocaleTimeString()}</h4>
+    );
+}
+
+/*
 class Timer extends Component{
     constructor(props) {
         super(props);
@@ -29,5 +51,8 @@ class Timer extends Component{
         );
     }
 }
+
+
+*/
 
 export default Timer;
