@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { TextField } from '@mui/material';
 
  import { useFormik } from 'formik';
  
@@ -19,24 +19,28 @@ import React from 'react';
    });
    return (
      <form onSubmit={formik.handleSubmit}>
-       <label htmlFor="userName">User Name</label>
-       <input
+       
+
+       <TextField
          id="userName"
          name="userName"
-         type="text"
+         label="User Name"
+         variant="outlined"
          onChange={formik.handleChange}
          value={formik.values.userName}
-       />
- 
-        <label htmlFor="password">Password</label>
-       <input
-         id="password"
-         name="password"
-         type="password"
-         onChange={formik.handleChange}
-         value={formik.values.password}
+         fullWidth
+         margin="normal"
        />
 
+      <TextField  id="password"
+         name="password"
+         label="Password"
+         variant="outlined"
+         onChange={formik.handleChange}
+         value={formik.values.userName}
+         fullWidth
+         margin="normal">
+        </TextField>
        <button type="submit">Submit</button>
      </form>
    );
