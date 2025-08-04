@@ -14,11 +14,16 @@ const validationSchema = Yup.object({
 
 
  
- const Login = () => {
+ const Login = ({registerStatus}) => {
    // Note that we have to initialize ALL of fields with values. These
    // could come from props, but since we don’t want to prefill this form,
    // we just use an empty string. If we don’t do this, React will yell
    // at us.
+
+   function handleRegister() {
+      registerStatus(true);
+   }  
+
    const formik = useFormik({
      initialValues: {
        userName: '',
@@ -44,6 +49,7 @@ const validationSchema = Yup.object({
      },
    });
    return (
+    <div className='loginContainer'>
      <form onSubmit={formik.handleSubmit} className='login'>
        <fieldset>
        <legend>Login</legend>
@@ -77,6 +83,11 @@ const validationSchema = Yup.object({
       </Button>
   </fieldset>
      </form>
+     <div>
+    <a href="#" onClick={handleRegister}>Don't have an account? Register </a>
+   </div>
+   </div>
    );
+   
  };
 export default Login;
