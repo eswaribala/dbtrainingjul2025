@@ -1,5 +1,5 @@
 
-import React, { useEffect} from 'react';
+import React, { useEffect, useMemo} from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Tab } from '@mui/material';
 import Table from '@mui/material/Table';
@@ -34,6 +34,11 @@ const Menu = () => {
     fetchUsers();
   }, []);
 
+  const sortUsers = useMemo(() => {
+    console.log('Sorting users:', users);
+    return [...users].sort((a, b) => a.name.localeCompare(b.name));
+  }, [users]);  
+
   return (
 <TabContext value={value}>
   <Box width={1000} mt={4} mx="auto" sx={{ borderBottom: 1, borderColor: 'divider', }}>
@@ -66,7 +71,7 @@ const Menu = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((user) => (
+          {sortUsers.map((user) => (
             <TableRow
               key={user.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
