@@ -122,4 +122,5 @@ docker run --net=my_isolated_bridge_network --name=my_psql_db postgres
 docker run  it - network=my_isolated_bridge_network ubuntu:latest /bin/bash 
 docker network inspect my_isolated_bridge_network
 
+docker run -it --net host --pid host --cap-add audit_control -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST -v /var/lib:/var/lib -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc --label docker_bench_security docker/docker-bench-security
 
